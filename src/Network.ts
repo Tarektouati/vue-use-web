@@ -1,4 +1,4 @@
-import Vue, { VueConstructor } from 'vue';
+import Vue from 'vue';
 import { normalizeChildren } from './utils';
 
 type NetworkType = 'bluetooth' | 'cellular' | 'ethernet' | 'none' | 'wifi' | 'wimax' | 'other' | 'unknown';
