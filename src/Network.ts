@@ -1,9 +1,18 @@
 import Vue, { VueConstructor } from 'vue';
 import { normalizeChildren } from './utils';
 
+type NetworkType = 'bluetooth' | 'cellular' | 'ethernet' | 'none' | 'wifi' | 'wimax' | 'other' | 'unknown';
+
+type NetworkEffectiveType = 'slow-2g' | '2g' | '3g' | '4g';
+
 interface NetworkSlotProps {
   isOnline: boolean;
   offlineAt: Date | null;
+  downlink?: number;
+  downlinkMax?: number;
+  effectiveType?: NetworkEffectiveType;
+  saveData?: boolean;
+  type?: NetworkType;
 }
 
 interface NetworkComponentData extends NetworkSlotProps {
@@ -21,7 +30,12 @@ export const Network = (Vue as withNetworkNode).extend({
   data: (): NetworkComponentData => ({
     isOnline: false,
     offlineAt: null,
-    isListening: false
+    isListening: false,
+    downlink: undefined,
+    downlinkMax: undefined,
+    effectiveType: undefined,
+    saveData: undefined,
+    type: undefined
   }),
   mounted() {
     // in-case it wasn't listening already.
@@ -32,6 +46,13 @@ export const Network = (Vue as withNetworkNode).extend({
     window.removeEventListener('online', this._onOnline);
   },
   methods: {
+    updateConnectionProperties() {
+      this.downlink = (window.navigator as any).connection.downlink;
+      this.downlinkMax = (window.navigator as any).connection.downlinkMax;
+      this.effectiveType = (window.navigator as any).connection.effectiveType;
+      this.saveData = (window.navigator as any).connection.saveData;
+      this.type = (window.navigator as any).connection.type;
+    },
     attachListeners() {
       if (this.isListening) return;
 
@@ -48,6 +69,11 @@ export const Network = (Vue as withNetworkNode).extend({
 
       window.addEventListener('offline', this._onOffline);
       window.addEventListener('online', this._onOnline);
+      if ('connection' in window.navigator) {
+        (window.navigator as any).connection.onchange = () => {
+          this.updateConnectionProperties();
+        };
+      }
 
       this.isListening = true;
     }
@@ -55,7 +81,12 @@ export const Network = (Vue as withNetworkNode).extend({
   render(h) {
     const slotProps: NetworkSlotProps = {
       isOnline: this.isOnline,
-      offlineAt: this.offlineAt
+      offlineAt: this.offlineAt,
+      downlink: this.downlink,
+      downlinkMax: this.downlinkMax,
+      effectiveType: this.effectiveType,
+      saveData: this.saveData,
+      type: this.type
     };
 
     const children = normalizeChildren(this, slotProps);
@@ -67,6 +98,9 @@ export const Network = (Vue as withNetworkNode).extend({
     if (!this.isListening) {
       this.isOnline = window.navigator.onLine;
       this.offlineAt = this.isOnline ? null : new Date();
+      if ((window.navigator as any).connection) {
+        this.updateConnectionProperties();
+      }
     }
 
     return h('div', children);
