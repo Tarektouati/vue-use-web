@@ -47,10 +47,10 @@ let onOnline: EventListenerOrEventListenerObject;
 let onOffline: EventListenerOrEventListenerObject;
 const onChange: EventListenerOrEventListenerObject = () => updateConnectionProperties();
 
-function removeListeners() {
-  window.removeEventListener('offline', onOffline);
-  window.removeEventListener('online', onOnline);
-}
+// function removeListeners() {
+//   window.removeEventListener('offline', onOffline);
+//   window.removeEventListener('online', onOnline);
+// }
 
 function addListeners() {
   if (onOffline) return;
