@@ -20,7 +20,6 @@ let isSetupDone = false;
 const state: NetworkSlotProps = Vue.observable({
   isOnline: false,
   offlineAt: null,
-  isListening: false,
   downlink: undefined,
   downlinkMax: undefined,
   effectiveType: undefined,
@@ -28,24 +27,29 @@ const state: NetworkSlotProps = Vue.observable({
   type: undefined
 });
 
-let onOnline: EventListenerOrEventListenerObject;
-let onOffline: EventListenerOrEventListenerObject;
-let onChange: EventListenerOrEventListenerObject;
-
-function removeListeners() {
-  window.removeEventListener('offline', onOffline);
-  window.removeEventListener('online', onOnline);
-}
-
 function updateConnectionProperties() {
   state.isOnline = window.navigator.onLine;
   state.offlineAt = state.isOnline ? null : new Date();
+  // skip for non supported browsers.
+  if (!('connection' in window.navigator)) {
+    return;
+  }
+
   state.downlink = (window.navigator as any).connection.downlink;
   state.downlinkMax = (window.navigator as any).connection.downlinkMax;
   state.effectiveType = (window.navigator as any).connection.effectiveType;
   state.saveData = (window.navigator as any).connection.saveData;
   state.type = (window.navigator as any).connection.type;
   isSetupDone = true;
+}
+
+let onOnline: EventListenerOrEventListenerObject;
+let onOffline: EventListenerOrEventListenerObject;
+const onChange: EventListenerOrEventListenerObject = () => updateConnectionProperties();
+
+function removeListeners() {
+  window.removeEventListener('offline', onOffline);
+  window.removeEventListener('online', onOnline);
 }
 
 function addListeners() {
@@ -63,9 +67,7 @@ function addListeners() {
   window.addEventListener('offline', onOffline);
   window.addEventListener('online', onOnline);
   if ('connection' in window.navigator) {
-    (window.navigator as any).connection.onchange = () => {
-      updateConnectionProperties();
-    };
+    (window.navigator as any).connection.onchange = onChange;
   }
 }
 
