@@ -15,94 +15,74 @@ interface NetworkSlotProps {
   type?: NetworkType;
 }
 
-interface NetworkComponentData extends NetworkSlotProps {
-  isListening: boolean;
+let isSetupDone = false;
+
+const state: NetworkSlotProps = Vue.observable({
+  isOnline: false,
+  offlineAt: null,
+  isListening: false,
+  downlink: undefined,
+  downlinkMax: undefined,
+  effectiveType: undefined,
+  saveData: undefined,
+  type: undefined
+});
+
+let onOnline: EventListenerOrEventListenerObject;
+let onOffline: EventListenerOrEventListenerObject;
+let onChange: EventListenerOrEventListenerObject;
+
+function removeListeners() {
+  window.removeEventListener('offline', onOffline);
+  window.removeEventListener('online', onOnline);
 }
 
-type withNetworkNode = VueConstructor<
-  Vue & {
-    _onOnline: EventListenerOrEventListenerObject;
-    _onOffline: EventListenerOrEventListenerObject;
-  }
->;
+function updateConnectionProperties() {
+  state.isOnline = window.navigator.onLine;
+  state.offlineAt = state.isOnline ? null : new Date();
+  state.downlink = (window.navigator as any).connection.downlink;
+  state.downlinkMax = (window.navigator as any).connection.downlinkMax;
+  state.effectiveType = (window.navigator as any).connection.effectiveType;
+  state.saveData = (window.navigator as any).connection.saveData;
+  state.type = (window.navigator as any).connection.type;
+  isSetupDone = true;
+}
 
-export const Network = (Vue as withNetworkNode).extend({
-  data: (): NetworkComponentData => ({
-    isOnline: false,
-    offlineAt: null,
-    isListening: false,
-    downlink: undefined,
-    downlinkMax: undefined,
-    effectiveType: undefined,
-    saveData: undefined,
-    type: undefined
-  }),
-  mounted() {
-    // in-case it wasn't listening already.
-    this.attachListeners();
-  },
-  beforeDestroy() {
-    window.removeEventListener('offline', this._onOffline);
-    window.removeEventListener('online', this._onOnline);
-  },
-  methods: {
-    updateConnectionProperties() {
-      this.downlink = (window.navigator as any).connection.downlink;
-      this.downlinkMax = (window.navigator as any).connection.downlinkMax;
-      this.effectiveType = (window.navigator as any).connection.effectiveType;
-      this.saveData = (window.navigator as any).connection.saveData;
-      this.type = (window.navigator as any).connection.type;
-    },
-    attachListeners() {
-      if (this.isListening) return;
+function addListeners() {
+  if (onOffline) return;
 
-      this._onOffline = () => {
-        this.isOnline = false;
-        this.offlineAt = new Date();
-        this.$emit('offline');
-      };
+  onOffline = () => {
+    state.isOnline = false;
+    state.offlineAt = new Date();
+  };
 
-      this._onOnline = () => {
-        this.isOnline = true;
-        this.$emit('online');
-      };
+  onOnline = () => {
+    state.isOnline = true;
+  };
 
-      window.addEventListener('offline', this._onOffline);
-      window.addEventListener('online', this._onOnline);
-      if ('connection' in window.navigator) {
-        (window.navigator as any).connection.onchange = () => {
-          this.updateConnectionProperties();
-        };
-      }
-
-      this.isListening = true;
-    }
-  },
-  render(h) {
-    const slotProps: NetworkSlotProps = {
-      isOnline: this.isOnline,
-      offlineAt: this.offlineAt,
-      downlink: this.downlink,
-      downlinkMax: this.downlinkMax,
-      effectiveType: this.effectiveType,
-      saveData: this.saveData,
-      type: this.type
+  window.addEventListener('offline', onOffline);
+  window.addEventListener('online', onOnline);
+  if ('connection' in window.navigator) {
+    (window.navigator as any).connection.onchange = () => {
+      updateConnectionProperties();
     };
+  }
+}
 
-    const children = normalizeChildren(this, slotProps);
+export const Network = Vue.extend({
+  functional: true,
+  render(_, ctx) {
+    const children = normalizeChildren(ctx, state);
     // SSR Handling.
     if (typeof window === 'undefined') {
-      return h('div', children);
+      return children;
     }
 
-    if (!this.isListening) {
-      this.isOnline = window.navigator.onLine;
-      this.offlineAt = this.isOnline ? null : new Date();
-      if ((window.navigator as any).connection) {
-        this.updateConnectionProperties();
-      }
+    if (!isSetupDone) {
+      updateConnectionProperties();
+      addListeners();
     }
 
-    return h('div', children);
+    return children;
   }
 });
