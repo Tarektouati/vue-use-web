@@ -1,9 +1,14 @@
-import { VNode, RenderContext } from 'vue';
+import Vue, { VNode, RenderContext } from 'vue';
 
-export function normalizeChildren(ctx: RenderContext<Record<never, any>>, slotProps: any): VNode[] {
-  if (ctx.scopedSlots.default) {
-    return ctx.scopedSlots.default(slotProps) || [];
+type RenderCtx = Vue | RenderContext;
+
+export function normalizeChildren(ctx: RenderCtx, slotProps: any): VNode[] {
+  const scopes = (ctx as Vue).$scopedSlots || (ctx as RenderContext).scopedSlots;
+  if (scopes.default) {
+    return scopes.default(slotProps) || [];
   }
 
-  return ctx.slots().default || [];
+  const slots = (ctx as Vue).$slots || (ctx as RenderContext).slots();
+
+  return slots.default || [];
 }
