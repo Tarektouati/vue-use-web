@@ -12,7 +12,7 @@
 - [ ] deviceMemory.
 - [ ] Notification API.
 - [ ] Share API.
-- [ ] Fullscreen API.
+- [x] Fullscreen API.
 
 ## License
 
