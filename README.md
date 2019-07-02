@@ -5,6 +5,8 @@
 - [x] Geolocation.
 - [x] Battery.
 - [x] Network.
+- [x] ContextMenu.
+- [x] Clipboard.
 - [ ] getUserMedia.
 - [ ] getVRDisplays.
 - [ ] media capabilities.
