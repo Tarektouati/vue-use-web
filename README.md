@@ -12,7 +12,7 @@ Each composition function is designed to degrade gracefully so you can safely us
 - [x] Clipboard.
 - [ ] Notification API.
 - [ ] Share API.
-- [x] Full-screen API.
+- [ ] Full-screen API.
 
 ## License
 
