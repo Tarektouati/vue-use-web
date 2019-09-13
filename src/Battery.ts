@@ -1,10 +1,8 @@
-import Vue from 'vue';
-import { normalizeChildren } from './utils';
+import { reactive, onMounted, toRefs } from '@vue/composition-api';
 
 let battery: any;
-let isSetupDone = false;
 
-const state = Vue.observable({
+const state = reactive({
   isCharging: false,
   chargingTime: 0,
   dischargingTime: 0,
@@ -18,7 +16,6 @@ function updateBatteryInfo() {
   state.chargingTime = battery.chargingTime || 0;
   state.dischargingTime = battery.dischargingTime || 0;
   state.level = battery.level;
-  isSetupDone = true;
 }
 
 function addListeners() {
@@ -38,23 +35,26 @@ function addListeners() {
   };
 }
 
-export const Battery = Vue.extend({
-  functional: true,
-  render(_, ctx) {
-    const children = normalizeChildren(ctx, state);
-    // SSR Handling.
-    if (typeof window === 'undefined') {
-      return children;
-    }
-
-    if (!isSetupDone && 'getBattery' in navigator) {
-      (navigator as any).getBattery().then((b: any) => {
-        battery = b;
-        updateBatteryInfo();
-        addListeners();
-      });
-    }
-
-    return children;
+function initBatteryAPI() {
+  if (!('getBattery' in navigator)) {
+    return;
   }
-});
+
+  (navigator as any).getBattery().then((b: any) => {
+    battery = b;
+    updateBatteryInfo();
+    addListeners();
+  });
+}
+
+export function useBattery() {
+  if (!battery) {
+    onMounted(() => {
+      initBatteryAPI();
+    });
+  }
+
+  return {
+    ...toRefs(state)
+  };
+}
