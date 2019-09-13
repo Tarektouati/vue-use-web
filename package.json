@@ -2,9 +2,9 @@
   "name": "vue-use-web",
   "version": "0.0.1",
   "description": "Web APIs as Vue.js composition functions",
-  "module": "dist/use-web.esm.js",
-  "unpkg": "dist/use-web.js",
-  "main": "dist/use-web.js",
+  "module": "dist/vue-use-web.esm.js",
+  "unpkg": "dist/vue-use-web.js",
+  "main": "dist/vue-use-web.js",
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",

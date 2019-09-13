@@ -64,7 +64,7 @@ const builds = {
   umd: {
     input: 'src/index.ts',
     format: 'umd',
-    name: 'ElWeb',
+    name: 'VueUseWeb',
     env: 'production'
   },
   esm: {
