@@ -1,37 +1,40 @@
 import { reactive, onMounted, toRefs } from '@vue/composition-api';
 
 let battery: any;
+let STATE: ReturnType<typeof initState>;
 
-const state = reactive({
-  isCharging: false,
-  chargingTime: 0,
-  dischargingTime: 0,
-  level: 1
-});
+function initState() {
+  return reactive({
+    isCharging: false,
+    chargingTime: 0,
+    dischargingTime: 0,
+    level: 1
+  });
+}
 
 function updateBatteryInfo() {
   if (!battery) return;
 
-  state.isCharging = battery.charging;
-  state.chargingTime = battery.chargingTime || 0;
-  state.dischargingTime = battery.dischargingTime || 0;
-  state.level = battery.level;
+  STATE.isCharging = battery.charging;
+  STATE.chargingTime = battery.chargingTime || 0;
+  STATE.dischargingTime = battery.dischargingTime || 0;
+  STATE.level = battery.level;
 }
 
 function addListeners() {
   if (!battery) return;
 
   battery.onchargingchange = () => {
-    state.isCharging = battery.charging;
+    STATE.isCharging = battery.charging;
   };
   battery.onchargingtimechange = () => {
-    state.chargingTime = battery.chargingTime;
+    STATE.chargingTime = battery.chargingTime;
   };
   battery.ondischargingtimechange = () => {
-    state.dischargingTime = battery.dischargingTime;
+    STATE.dischargingTime = battery.dischargingTime;
   };
   battery.onlevelchange = () => {
-    state.level = battery.level;
+    STATE.level = battery.level;
   };
 }
 
@@ -48,6 +51,10 @@ function initBatteryAPI() {
 }
 
 export function useBattery() {
+  if (!STATE) {
+    STATE = initState();
+  }
+
   if (!battery) {
     onMounted(() => {
       initBatteryAPI();
@@ -55,6 +62,6 @@ export function useBattery() {
   }
 
   return {
-    ...toRefs(state)
+    ...toRefs(STATE)
   };
 }
