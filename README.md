@@ -1,20 +1,18 @@
-# zee platform
+# vue-use-web
+
+Web APIs implemented as Vue.js composition functions.
 
 ## APIs
 
-- [x] Geolocation.
-- [x] Battery.
-- [x] Network.
-- [x] ContextMenu.
+Each composition function is designed to degrade gracefully so you can safely use them, but you should use these as a progressive enhancements for your apps. Check browsers compatibilities for each API.
+
+- [x] Geo-location.
+- [x] Battery API.
+- [x] Network API.
 - [x] Clipboard.
-- [ ] getUserMedia.
-- [ ] getVRDisplays.
-- [ ] media capabilities.
-- [ ] maxTouchPoints.
-- [ ] deviceMemory.
 - [ ] Notification API.
 - [ ] Share API.
-- [x] Fullscreen API.
+- [x] Full-screen API.
 
 ## License
 
