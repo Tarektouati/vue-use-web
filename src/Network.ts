@@ -1,5 +1,4 @@
-import Vue from 'vue';
-import { normalizeChildren } from './utils';
+import { reactive, onMounted, toRefs } from '@vue/composition-api';
 
 type NetworkType = 'bluetooth' | 'cellular' | 'ethernet' | 'none' | 'wifi' | 'wimax' | 'other' | 'unknown';
 
@@ -15,37 +14,40 @@ interface NetworkSlotProps {
   type?: NetworkType;
 }
 
-let isSetupDone = false;
+let STATE: ReturnType<typeof initState>;
 
-const state: NetworkSlotProps = Vue.observable({
-  isOnline: false,
-  offlineAt: null,
-  downlink: undefined,
-  downlinkMax: undefined,
-  effectiveType: undefined,
-  saveData: undefined,
-  type: undefined
-});
+function initState() {
+  const data: NetworkSlotProps = {
+    isOnline: false,
+    offlineAt: null,
+    downlink: undefined,
+    downlinkMax: undefined,
+    effectiveType: undefined,
+    saveData: undefined,
+    type: undefined
+  };
 
-function updateConnectionProperties() {
-  state.isOnline = window.navigator.onLine;
-  state.offlineAt = state.isOnline ? null : new Date();
+  return reactive(data);
+}
+
+function updateState() {
+  STATE.isOnline = window.navigator.onLine;
+  STATE.offlineAt = STATE.isOnline ? null : new Date();
   // skip for non supported browsers.
   if (!('connection' in window.navigator)) {
     return;
   }
 
-  state.downlink = (window.navigator as any).connection.downlink;
-  state.downlinkMax = (window.navigator as any).connection.downlinkMax;
-  state.effectiveType = (window.navigator as any).connection.effectiveType;
-  state.saveData = (window.navigator as any).connection.saveData;
-  state.type = (window.navigator as any).connection.type;
-  isSetupDone = true;
+  STATE.downlink = (window.navigator as any).connection.downlink;
+  STATE.downlinkMax = (window.navigator as any).connection.downlinkMax;
+  STATE.effectiveType = (window.navigator as any).connection.effectiveType;
+  STATE.saveData = (window.navigator as any).connection.saveData;
+  STATE.type = (window.navigator as any).connection.type;
 }
 
 let onOnline: EventListenerOrEventListenerObject;
 let onOffline: EventListenerOrEventListenerObject;
-const onChange: EventListenerOrEventListenerObject = () => updateConnectionProperties();
+const onChange: EventListenerOrEventListenerObject = () => updateState();
 
 // function removeListeners() {
 //   window.removeEventListener('offline', onOffline);
@@ -53,15 +55,13 @@ const onChange: EventListenerOrEventListenerObject = () => updateConnectionPrope
 // }
 
 function addListeners() {
-  if (onOffline) return;
-
   onOffline = () => {
-    state.isOnline = false;
-    state.offlineAt = new Date();
+    STATE.isOnline = false;
+    STATE.offlineAt = new Date();
   };
 
   onOnline = () => {
-    state.isOnline = true;
+    STATE.isOnline = true;
   };
 
   window.addEventListener('offline', onOffline);
@@ -71,20 +71,14 @@ function addListeners() {
   }
 }
 
-export const Network = Vue.extend({
-  functional: true,
-  render(_, ctx) {
-    const children = normalizeChildren(ctx, state);
-    // SSR Handling.
-    if (typeof window === 'undefined') {
-      return children;
-    }
-
-    if (!isSetupDone) {
-      updateConnectionProperties();
+export function useNetwork() {
+  if (!STATE) {
+    STATE = initState();
+    onMounted(() => {
+      updateState();
       addListeners();
-    }
-
-    return children;
+    });
   }
-});
+
+  return { ...toRefs(STATE) };
+}
