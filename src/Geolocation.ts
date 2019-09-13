@@ -1,28 +1,26 @@
-import Vue from 'vue';
-import { normalizeChildren } from './utils';
-
-let isSetupDone = false;
+import { reactive, toRefs } from '@vue/composition-api';
 
 interface GeolocationProps {
   coords?: Coordinates;
   locatedAt?: Date;
   error?: string;
-  locate: Function;
 }
 
-const state: GeolocationProps = Vue.observable({
-  coords: undefined,
-  locatedAt: undefined,
-  error: '',
-  locate: () => {
-    window.navigator.geolocation.getCurrentPosition(onSuccess, onError);
-  }
-});
+let STATE: ReturnType<typeof initState>;
+function initState() {
+  const data: GeolocationProps = {
+    coords: undefined,
+    locatedAt: undefined,
+    error: ''
+  };
 
-function onSuccess(position: Position) {
-  state.locatedAt = new Date(position.timestamp);
+  return reactive(data);
+}
+
+function updatePosition(position: Position) {
+  STATE.locatedAt = new Date(position.timestamp);
   const coords = position.coords;
-  state.coords = {
+  STATE.coords = {
     accuracy: coords.accuracy,
     altitude: coords.altitude,
     altitudeAccuracy: coords.altitudeAccuracy,
@@ -48,34 +46,33 @@ function onError(err: PositionError) {
 
   // TODO: Handle error.
   console.log('Unsupported!');
-  state.error = err.message;
+  STATE.error = err.message;
 }
 
-export const Geolocation = Vue.extend({
-  functional: true,
-  props: {
-    watch: {
-      type: Boolean,
-      default: false
-    }
-  },
-  render(_, ctx) {
-    const children = normalizeChildren(ctx, state);
-    // SSR Handling.
-    if (typeof window === 'undefined') {
-      return children;
+function locate() {
+  return new Promise((resolve, reject) => {
+    if (!('geolocation' in navigator)) {
+      STATE.error = 'Geolocation API is not supported';
+      return;
     }
 
-    if (!isSetupDone && 'geolocation' in window.navigator) {
-      if (ctx.props.watch) {
-        window.navigator.geolocation.watchPosition(onSuccess, onError);
-      } else {
-        state.locate();
+    window.navigator.geolocation.getCurrentPosition(
+      pos => {
+        updatePosition(pos);
+        resolve(pos);
+      },
+      err => {
+        onError(err);
+        reject(err);
       }
+    );
+  });
+}
 
-      isSetupDone = true;
-    }
-
-    return children;
+export function useGeolocation() {
+  if (!STATE) {
+    STATE = initState();
   }
-});
+
+  return { ...toRefs(STATE), locate };
+}
