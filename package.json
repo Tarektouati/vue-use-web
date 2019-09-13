@@ -87,5 +87,7 @@
       "git add"
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "@vue/composition-api": "^0.3.1"
+  }
 }

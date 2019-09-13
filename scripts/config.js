@@ -77,7 +77,7 @@ function genConfig(options) {
   const config = {
     input: {
       input: options.input,
-      external: ['vue'],
+      external: ['vue', '@vue/composition-api'],
       plugins: [
         typescript({ useTsconfigDeclarationDir: true }),
         replace({ __VERSION__: version }),
@@ -90,7 +90,8 @@ function genConfig(options) {
       format: options.format,
       name: options.name,
       globals: {
-        vue: 'Vue'
+        vue: 'Vue',
+        '@vue/composition-api': 'vueCompositionApi'
       }
     }
   };
