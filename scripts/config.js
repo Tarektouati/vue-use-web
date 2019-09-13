@@ -14,7 +14,7 @@ const version = process.env.VERSION || require('../package.json').version;
 const commons = {
   banner: `/**
   * elweb v${version}
-  * (c) ${new Date().getFullYear()} Baianat
+  * (c) ${new Date().getFullYear()} Abdelrahman Awad
   * @license MIT
   */`,
   outputFolder: path.join(__dirname, '..', 'dist'),
