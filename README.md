@@ -4,6 +4,16 @@ Web APIs implemented as Vue.js composition functions.
 
 ## ⚠ Not production ready yet ⚠
 
+This is a collection of [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) exposed as Vue.js composition hooks that's upcoming in Vue 3.0
+
+You can use them with Vue 2.0 using [@vue/composition-api](https://github.com/vuejs/composition-api) until Vue 3.0 gets out.
+
+## What and why
+
+Web APIs are ever changing, this library aims to provide to Vue.js developers a stable interface that integrates well into the ecosystem. Also an interface that degrades gracefully when browsers do not support said features.
+
+I initially was choosing to expose this as a [Stateful functional components](https://logaretm.com/blog/2019-06-29-stateful-functional-components/) but that isn't very handy and is not future proof. Implementing these APIs in Vue composition API (hooks) makes them ready for Vue 3.0 and beyond. Personally I think this is the perfect example to showcase the power of the Composition API.
+
 ## APIs
 
 Each composition function is designed to degrade gracefully so you can safely use them, but you should use these as a progressive enhancements for your apps. Check browsers compatibilities for each API.
@@ -13,9 +23,11 @@ Each composition function is designed to degrade gracefully so you can safely us
 - [x] Network API.
 - [x] Clipboard.
 - [ ] Fetch API.
+- [ ] Bluetooth API.
 - [ ] Notification API.
 - [ ] Share API.
 - [ ] Full-screen API.
+- [ ] DOM based APIs.
 
 ## License
 
