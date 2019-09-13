@@ -10,6 +10,7 @@ Each composition function is designed to degrade gracefully so you can safely us
 - [x] Battery API.
 - [x] Network API.
 - [x] Clipboard.
+- [ ] Fetch API.
 - [ ] Notification API.
 - [ ] Share API.
 - [ ] Full-screen API.
