@@ -1,31 +1,32 @@
-import Vue from 'vue';
-import { normalizeChildren } from './utils';
+import { reactive, toRefs, onMounted } from '@vue/composition-api';
 
-const state = Vue.observable({
-  text: '',
-  copy: (text: string) => {
-    state.text = text;
+function copy(text: string) {
+  STATE.text = text;
 
-    return navigator.clipboard.writeText(text);
+  return navigator.clipboard.writeText(text);
+}
+
+let STATE: ReturnType<typeof initState>;
+
+function initState() {
+  return reactive({
+    text: ''
+  });
+}
+
+export function useClipboard() {
+  if (!STATE) {
+    STATE = initState();
   }
-});
 
-let setup = false;
+  onMounted(() => {
+    window.addEventListener('copy', async () => {
+      STATE.text = await navigator.clipboard.readText();
+    });
+  });
 
-export const Clipboard = Vue.extend({
-  functional: true,
-  render(_, ctx) {
-    const children = normalizeChildren(ctx, state);
-    if (!setup && typeof window !== 'undefined') {
-      window.addEventListener('copy', () => {
-        Vue.nextTick(async () => {
-          state.text = await navigator.clipboard.readText();
-        });
-      });
-
-      setup = true;
-    }
-
-    return children;
-  }
-});
+  return {
+    ...toRefs(STATE),
+    copy
+  };
+}
