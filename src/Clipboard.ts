@@ -1,32 +1,28 @@
-import { reactive, toRefs, onMounted } from '@vue/composition-api';
-
-function copy(text: string) {
-  STATE.text = text;
-
-  return navigator.clipboard.writeText(text);
-}
-
-let STATE: ReturnType<typeof initState>;
-
-function initState() {
-  return reactive({
-    text: ''
-  });
-}
+import { ref, onMounted, onUnmounted } from '@vue/composition-api';
 
 export function useClipboard() {
-  if (!STATE) {
-    STATE = initState();
+  const text = ref('');
+
+  async function onCopy() {
+    text.value = await navigator.clipboard.readText();
   }
 
   onMounted(() => {
-    window.addEventListener('copy', async () => {
-      STATE.text = await navigator.clipboard.readText();
-    });
+    window.addEventListener('copy', onCopy);
   });
 
+  onUnmounted(() => {
+    window.removeEventListener('copy', onCopy);
+  });
+
+  function copy(txt: string) {
+    text.value = txt;
+
+    return navigator.clipboard.writeText(txt);
+  }
+
   return {
-    ...toRefs(STATE),
+    text,
     copy
   };
 }
