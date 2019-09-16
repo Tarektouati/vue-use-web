@@ -27,6 +27,8 @@ Each composition function is designed to degrade gracefully so you can safely us
 - [x] Device Light.
 - [x] Device Orientation.
 - [x] Script.
+- [x] Window Size.
+- [x] Window Scroll Position.
 - [ ] Bluetooth.
 - [ ] Notification.
 - [ ] Share.
