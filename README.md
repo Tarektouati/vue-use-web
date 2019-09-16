@@ -32,6 +32,10 @@ Each composition function is designed to degrade gracefully so you can safely us
 - [ ] Share.
 - [ ] Full-screen.
 
+## Inspiration
+
+This library is inspired by [the-platform](https://github.com/palmerhq/the-platform) for React.js.
+
 ## License
 
 MIT
