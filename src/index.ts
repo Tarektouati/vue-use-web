@@ -7,3 +7,4 @@ export * from './DeviceOrientation';
 export * from './DeviceMotion';
 export * from './Fetch';
 export * from './DeviceLight';
+export * from './WindowScrollPosition';
