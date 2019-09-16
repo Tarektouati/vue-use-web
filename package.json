@@ -5,14 +5,15 @@
   "module": "dist/vue-use-web.esm.js",
   "unpkg": "dist/vue-use-web.js",
   "main": "dist/vue-use-web.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "test": "jest",
     "test:cover": "jest --coverage",
     "lint": "eslint . '**/*.{js,jsx,ts,tsx}' --fix",
-    "build": "node scripts/build.js",
-    "ts:defs": "tsc --emitDeclarationOnly"
+    "ts:defs": "./scripts/defs.sh",
+    "build": "node ./scripts/build && npm run ts:defs"
   },
   "author": "Abdelrahman Awad <logaretm1@gmail.com>",
   "license": "MIT",
