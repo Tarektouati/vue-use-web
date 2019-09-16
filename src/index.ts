@@ -10,3 +10,4 @@ export * from './DeviceLight';
 export * from './WindowScrollPosition';
 export * from './WindowSize';
 export * from './IntersectionObserver';
+export * from './FullScreen';
