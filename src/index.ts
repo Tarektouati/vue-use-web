@@ -8,3 +8,4 @@ export * from './DeviceMotion';
 export * from './Fetch';
 export * from './DeviceLight';
 export * from './WindowScrollPosition';
+export * from './WindowSize';
