@@ -1,10 +1,10 @@
-import { reactive, onMounted, toRefs } from '@vue/composition-api';
+import { reactive, onMounted, toRefs, onUnmounted } from '@vue/composition-api';
 
 type NetworkType = 'bluetooth' | 'cellular' | 'ethernet' | 'none' | 'wifi' | 'wimax' | 'other' | 'unknown';
 
 type NetworkEffectiveType = 'slow-2g' | '2g' | '3g' | '4g';
 
-interface NetworkSlotProps {
+interface NetworkState {
   isOnline: boolean;
   offlineAt: Date | null;
   downlink?: number;
@@ -14,10 +14,8 @@ interface NetworkSlotProps {
   type?: NetworkType;
 }
 
-let STATE: ReturnType<typeof initState>;
-
-function initState() {
-  const data: NetworkSlotProps = {
+function makeState() {
+  const data: NetworkState = {
     isOnline: false,
     offlineAt: null,
     downlink: undefined,
@@ -30,55 +28,48 @@ function initState() {
   return reactive(data);
 }
 
-function updateState() {
-  STATE.isOnline = window.navigator.onLine;
-  STATE.offlineAt = STATE.isOnline ? null : new Date();
-  // skip for non supported browsers.
-  if (!('connection' in window.navigator)) {
-    return;
-  }
-
-  STATE.downlink = (window.navigator as any).connection.downlink;
-  STATE.downlinkMax = (window.navigator as any).connection.downlinkMax;
-  STATE.effectiveType = (window.navigator as any).connection.effectiveType;
-  STATE.saveData = (window.navigator as any).connection.saveData;
-  STATE.type = (window.navigator as any).connection.type;
-}
-
-let onOnline: EventListenerOrEventListenerObject;
-let onOffline: EventListenerOrEventListenerObject;
-const onChange: EventListenerOrEventListenerObject = () => updateState();
-
-// function removeListeners() {
-//   window.removeEventListener('offline', onOffline);
-//   window.removeEventListener('online', onOnline);
-// }
-
-function addListeners() {
-  onOffline = () => {
-    STATE.isOnline = false;
-    STATE.offlineAt = new Date();
-  };
-
-  onOnline = () => {
-    STATE.isOnline = true;
-  };
-
-  window.addEventListener('offline', onOffline);
-  window.addEventListener('online', onOnline);
-  if ('connection' in window.navigator) {
-    (window.navigator as any).connection.onchange = onChange;
-  }
-}
-
 export function useNetwork() {
-  if (!STATE) {
-    STATE = initState();
-    onMounted(() => {
-      updateState();
-      addListeners();
-    });
+  const state = makeState();
+
+  function updateState() {
+    state.isOnline = window.navigator.onLine;
+    state.offlineAt = state.isOnline ? null : new Date();
+    // skip for non supported browsers.
+    if (!('connection' in window.navigator)) {
+      return;
+    }
+
+    state.downlink = (window.navigator as any).connection.downlink;
+    state.downlinkMax = (window.navigator as any).connection.downlinkMax;
+    state.effectiveType = (window.navigator as any).connection.effectiveType;
+    state.saveData = (window.navigator as any).connection.saveData;
+    state.type = (window.navigator as any).connection.type;
   }
 
-  return { ...toRefs(STATE) };
+  const onOffline = () => {
+    state.isOnline = false;
+    state.offlineAt = new Date();
+  };
+
+  const onOnline = () => {
+    state.isOnline = true;
+  };
+
+  onMounted(() => {
+    window.addEventListener('offline', onOffline);
+    window.addEventListener('online', onOnline);
+    if ('connection' in window.navigator) {
+      (window.navigator as any).connection.addEventListener('change', updateState);
+    }
+  });
+
+  onUnmounted(() => {
+    window.removeEventListener('offline', onOffline);
+    window.removeEventListener('online', onOnline);
+    if ('connection' in window.navigator) {
+      (window.navigator as any).connection.removeEventListener('change', updateState);
+    }
+  });
+
+  return { ...toRefs(state) };
 }
