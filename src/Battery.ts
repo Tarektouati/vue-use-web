@@ -1,67 +1,58 @@
-import { reactive, onMounted, toRefs } from '@vue/composition-api';
+import { reactive, onMounted, toRefs, onUnmounted } from '@vue/composition-api';
 
-let battery: any;
-let STATE: ReturnType<typeof initState>;
+interface BatteryManager extends EventTarget {
+  charging: boolean;
+  chargingTime: number;
+  dischargingTime: number;
+  level: number;
+}
 
-function initState() {
-  return reactive({
+type NavigatorWithBattery = Navigator & {
+  getBattery: () => Promise<BatteryManager>;
+};
+
+const events = ['chargingchange', 'chargingtimechange', 'dischargingtimechange', 'levelchange'];
+
+export function useBattery() {
+  const state = reactive({
     isCharging: false,
     chargingTime: 0,
     dischargingTime: 0,
     level: 1
   });
-}
 
-function updateBatteryInfo() {
-  if (!battery) return;
-
-  STATE.isCharging = battery.charging;
-  STATE.chargingTime = battery.chargingTime || 0;
-  STATE.dischargingTime = battery.dischargingTime || 0;
-  STATE.level = battery.level;
-}
-
-function addListeners() {
-  if (!battery) return;
-
-  battery.onchargingchange = () => {
-    STATE.isCharging = battery.charging;
-  };
-  battery.onchargingtimechange = () => {
-    STATE.chargingTime = battery.chargingTime;
-  };
-  battery.ondischargingtimechange = () => {
-    STATE.dischargingTime = battery.dischargingTime;
-  };
-  battery.onlevelchange = () => {
-    STATE.level = battery.level;
-  };
-}
-
-function initBatteryAPI() {
-  if (!('getBattery' in navigator)) {
-    return;
+  function updateBatteryInfo(this: BatteryManager) {
+    state.isCharging = this.charging;
+    state.chargingTime = this.chargingTime || 0;
+    state.dischargingTime = this.dischargingTime || 0;
+    state.level = this.level;
   }
 
-  (navigator as any).getBattery().then((b: any) => {
-    battery = b;
-    updateBatteryInfo();
-    addListeners();
-  });
-}
+  onMounted(() => {
+    if (!('getBattery' in navigator)) {
+      return;
+    }
 
-export function useBattery() {
-  if (!STATE) {
-    STATE = initState();
-  }
-
-  if (!battery) {
-    onMounted(() => {
-      initBatteryAPI();
+    (navigator as NavigatorWithBattery).getBattery().then(battery => {
+      events.forEach(evt => {
+        battery.addEventListener(evt, updateBatteryInfo);
+      });
     });
-  }
+  });
+
+  onUnmounted(() => {
+    if (!('getBattery' in navigator)) {
+      return;
+    }
+
+    (navigator as NavigatorWithBattery).getBattery().then(battery => {
+      events.forEach(evt => {
+        battery.removeEventListener(evt, updateBatteryInfo);
+      });
+    });
+  });
 
   return {
-    ...toRefs(STATE)
+    ...toRefs(state)
   };
 }
