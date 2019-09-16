@@ -19,15 +19,18 @@ I initially was choosing to expose this as a [Stateful functional components](ht
 Each composition function is designed to degrade gracefully so you can safely use them, but you should use these as a progressive enhancements for your apps. Check browsers compatibilities for each API.
 
 - [x] Geo-location.
-- [x] Battery API.
-- [x] Network API.
+- [x] Battery.
+- [x] Network.
 - [x] Clipboard.
-- [ ] Fetch API.
-- [ ] Bluetooth API.
-- [ ] Notification API.
-- [ ] Share API.
-- [ ] Full-screen API.
-- [ ] DOM based APIs.
+- [x] Fetch.
+- [x] Device Motion.
+- [x] Device Light.
+- [x] Device Orientation.
+- [x] Script.
+- [ ] Bluetooth.
+- [ ] Notification.
+- [ ] Share.
+- [ ] Full-screen.
 
 ## License
 
