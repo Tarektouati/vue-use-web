@@ -29,6 +29,7 @@ Each composition function is designed to degrade gracefully so you can safely us
 - [x] Script.
 - [x] Window Size.
 - [x] Window Scroll Position.
+- [ ] Intersection Observer.
 - [ ] Bluetooth.
 - [ ] Notification.
 - [ ] Share.
