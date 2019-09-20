@@ -6,7 +6,7 @@ type NetworkEffectiveType = 'slow-2g' | '2g' | '3g' | '4g';
 
 interface NetworkState {
   isOnline: boolean;
-  offlineAt: Date | null;
+  offlineAt: Date | undefined;
   downlink?: number;
   downlinkMax?: number;
   effectiveType?: NetworkEffectiveType;
@@ -17,7 +17,7 @@ interface NetworkState {
 function makeState() {
   const data: NetworkState = {
     isOnline: false,
-    offlineAt: null,
+    offlineAt: undefined,
     downlink: undefined,
     downlinkMax: undefined,
     effectiveType: undefined,
@@ -33,7 +33,7 @@ export function useNetwork() {
 
   function updateState() {
     state.isOnline = window.navigator.onLine;
-    state.offlineAt = state.isOnline ? null : new Date();
+    state.offlineAt = state.isOnline ? undefined : new Date();
     // skip for non supported browsers.
     if (!('connection' in window.navigator)) {
       return;
