@@ -3,10 +3,18 @@ import { reactive, toRefs, onMounted, onUnmounted } from '@vue/composition-api';
 export function useGeolocation(options: PositionOptions) {
   const data: {
     error: string;
-    coords?: Position['coords'];
-    locatedAt?: Date;
+    coords: Position['coords'];
+    locatedAt: Date | undefined;
   } = {
-    coords: undefined,
+    coords: {
+      accuracy: 0,
+      latitude: 0,
+      longitude: 0,
+      altitude: null,
+      altitudeAccuracy: null,
+      heading: null,
+      speed: null
+    },
     locatedAt: undefined,
     error: ''
   };
@@ -15,16 +23,8 @@ export function useGeolocation(options: PositionOptions) {
 
   function updatePosition(position: Position) {
     state.locatedAt = new Date(position.timestamp);
-    const coords = position.coords;
-    state.coords = {
-      accuracy: coords.accuracy,
-      altitude: coords.altitude,
-      altitudeAccuracy: coords.altitudeAccuracy,
-      heading: coords.heading,
-      latitude: coords.latitude,
-      longitude: coords.longitude,
-      speed: coords.speed
-    };
+    state.coords = position.coords;
+    state.error = '';
   }
 
   let watcher: number;
