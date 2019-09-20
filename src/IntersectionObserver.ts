@@ -6,8 +6,15 @@ export function useIntersectionObserver(
 ) {
   const state = reactive({
     intersectionRatio: 0,
-    isIntersecting: false
+    isIntersecting: false,
+    isFullyInView: false
   });
+
+  function observe() {
+    if (target.value) {
+      observer.observe(target.value);
+    }
+  }
 
   let observer: IntersectionObserver;
   onMounted(() => {
@@ -15,26 +22,29 @@ export function useIntersectionObserver(
       state.intersectionRatio = state.intersectionRatio;
       if (entry.intersectionRatio > 0) {
         state.isIntersecting = true;
+        state.isFullyInView = entry.intersectionRatio === 1;
         return;
       }
 
       state.isIntersecting = false;
     }, options);
 
-    if (target.value) {
-      observer.observe(target.value);
-    }
+    observe();
   });
 
-  onUnmounted(() => {
+  function unobserve() {
     if (!observer) return;
 
     if (target.value) {
       observer.unobserve(target.value);
     }
-  });
+  }
+
+  onUnmounted(unobserve);
 
   return {
-    ...toRefs(state)
+    ...toRefs(state),
+    observe,
+    unobserve
   };
 }
