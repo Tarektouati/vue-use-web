@@ -1,7 +1,5 @@
 import { onMounted, reactive, toRefs, onUnmounted } from '@vue/composition-api';
 
-let STATE: ReturnType<typeof initState>;
-
 function initState() {
   const data: {
     isAbsolute: boolean;
@@ -18,16 +16,14 @@ function initState() {
   return reactive(data);
 }
 
-function handler(event: DeviceOrientationEvent) {
-  STATE.isAbsolute = event.absolute;
-  STATE.alpha = event.alpha;
-  STATE.beta = event.beta;
-  STATE.gamma = event.gamma;
-}
-
 export function useDeviceOrientation() {
-  if (!STATE) {
-    STATE = initState();
+  const state = initState();
+
+  function handler(event: DeviceOrientationEvent) {
+    state.isAbsolute = event.absolute;
+    state.alpha = event.alpha;
+    state.beta = event.beta;
+    state.gamma = event.gamma;
   }
 
   onMounted(() => {
@@ -39,6 +35,6 @@ export function useDeviceOrientation() {
   });
 
   return {
-    ...toRefs(STATE)
+    ...toRefs(state)
   };
 }
