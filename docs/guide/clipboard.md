@@ -32,16 +32,18 @@ const { write } = useClipboard();
 write('hello world!');
 ```
 
-| Signature            | Type     | Description                                  |
-| -------------------- | -------- | -------------------------------------------- |
-| `write(str: string)` | `string` | Writes the given string it in the clipboard. |
+| Signature            | Description                                  |
+| -------------------- | -------------------------------------------- |
+| `write(str: string)` | Writes the given string it in the clipboard. |
 
 ## Example
 
 ```vue
 <template>
-  <div @click="copy('568781')">Click here to copy the code: <em>568781</em></div>
-  <div>Detected code: {{ text }}</div>
+  <div>
+    <div @click="copy('568781')">Click here to copy the code: <em>568781</em></div>
+    <div>Detected code: {{ text }}</div>
+  </div>
 </template>
 
 <script>

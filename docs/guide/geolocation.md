@@ -22,8 +22,10 @@ const { coords, locatedAt, error } = useGeolocation();
 
 ```vue
 <template>
-  <div>User position is: {{ coords.longitude }} {{ coords.latitude }}</div>
-  <div>Last updated: {{ locatedAt }}</div>
+  <div>
+    <div>User position is: {{ coords.longitude }} {{ coords.latitude }}</div>
+    <div>Last updated: {{ locatedAt }}</div>
+  </div>
 </template>
 
 <script>
