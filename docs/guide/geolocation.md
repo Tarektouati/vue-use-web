@@ -18,6 +18,20 @@ const { coords, locatedAt, error } = useGeolocation();
 | locatedAt | `Date`                                                                      | The time of the last geolocation call                                    |
 | error     | `string`                                                                    | An error message in case geolocation API fails.                          |
 
+## Config
+
+`useGeolocation` function takes [PositionOptions](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions) object as an optional parameter.
+
+```js
+import { useGeolocation } from 'vue-use-web';
+
+const { coords } = useGeolocation({
+  enableHighAccuracy: true,
+  maximumAge: 30000,
+  timeout: 27000
+});
+```
+
 ## Example
 
 ```vue
@@ -39,18 +53,4 @@ export default {
   }
 };
 </script>
-```
-
-## Options
-
-`useGeolocation` function takes [PositionOptions](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions) object as an optional parameter.
-
-```js
-import { useGeolocation } from 'vue-use-web';
-
-const { coords } = useGeolocation({
-  enableHighAccuracy: true,
-  maximumAge: 30000,
-  timeout: 27000
-});
 ```

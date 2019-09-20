@@ -58,7 +58,3 @@ export default {
 };
 </script>
 ```
-
-## Options
-
-`useClipboard` doesn't take any parameters.
