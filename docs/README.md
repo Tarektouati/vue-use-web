@@ -10,8 +10,8 @@ features:
     details: All the APIs have been repurposed to be reactive so you can use them directly in your components.
   - title: Graceful Degradation
     details: Sensible fallbacks are in place if the browser does support an API or the user doesn't give the permission.
-  - title: Configurable
-    details: Config that doesn't get into your way, everything is optional.
+  - title: TypeScript Support
+    details: Written in TypeScript.
 footer: MIT Licensed | Copyright © 2019-present Abdelrahman Awad
 description: Web APIs implemented as Vue.js composition functions
 meta:
