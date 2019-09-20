@@ -53,7 +53,7 @@ module.exports = {
     editLinks: true,
     sidebarDepth: 2,
     sidebar: {
-      '/guide/': [''],
+      '/guide/': ['', 'battery', 'clipboard', 'device-light', 'device-motion', 'device-orientation', 'fullscreen', 'geolocation', 'intersection-observer', 'network', 'script', 'scroll-position', 'window-size'],
       '/examples/': []
     },
     locales: {

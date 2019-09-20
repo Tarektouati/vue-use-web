@@ -19,20 +19,22 @@ I initially was choosing to expose this as a [Stateful functional components](ht
 
 ## Web APIs
 
-- [x] Geo-location.
-- [x] Battery.
-- [x] Network.
-- [x] Clipboard.
-- [x] Fetch.
-- [x] Device Motion.
-- [x] Device Light.
-- [x] Device Orientation.
-- [x] Script.
-- [x] Window Size.
-- [x] Window Scroll Position.
-- [x] Full-screen.
-- [x] Intersection Observer.
-- [ ] Bluetooth.
-- [ ] Notification.
-- [ ] Share.
-- [ ] Local storage.
+These are the currently implemented Web APIs and the planned ones.
+
+- [Battery Status API](./guide/battery.md).
+- [Clipboard API](./guide/clipboard.md).
+- [Device Light](./guide/device-light.md).
+- [Device Motion](./guide/device-motion.md).
+- [Device Orientation](./guide/device-orientation.md).
+- [Full-screen](./guide/fullscreen.md).
+- [Geo-location API](./guide/geolocation.md).
+- [Intersection Observer](./guide/intersection-observer.md).
+- [Network Information API](./guide/network.md).
+- [Script](./guide/script.md).
+- [Window Scroll Position](./guide/scroll-position.md).
+- [Window Size](./guide/window-size.md).
+- Bluetooth <Badge text="WIP" type="warn" />.
+- Fetch <Badge text="WIP" type="warn" />.
+- Local storage <Badge text="WIP" type="warn" />.
+- Notification <Badge text="WIP" type="warn" />.
+- Share <Badge text="WIP" type="warn" />.
