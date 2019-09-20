@@ -37,7 +37,7 @@ export default {
 </script>
 ```
 
-## Reference
+## Options
 
 `useGeolocation` function takes [PositionOptions](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions) object as an optional parameter.
 

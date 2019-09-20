@@ -15,7 +15,7 @@ export function useClipboard() {
     window.removeEventListener('copy', onCopy);
   });
 
-  function copy(txt: string) {
+  function write(txt: string) {
     text.value = txt;
 
     return navigator.clipboard.writeText(txt);
@@ -23,6 +23,6 @@ export function useClipboard() {
 
   return {
     text,
-    copy
+    write
   };
 }
