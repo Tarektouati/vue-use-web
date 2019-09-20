@@ -16,7 +16,9 @@ import { useClipboard } from 'vue-use-web';
 const { text } = useClipboard();
 ```
 
-- text: A `string` containing the current text in the clipboard.
+| State | Type     | Description                        |
+| ----- | -------- | ---------------------------------- |
+| text  | `string` | the current text in the clipboard. |
 
 ## Methods
 
@@ -30,7 +32,9 @@ const { write } = useClipboard();
 write('hello world!');
 ```
 
-- write: Takes a `string` and writes it in the clipboard, updates the `text` state as well.
+| Signature            | Type     | Description                                  |
+| -------------------- | -------- | -------------------------------------------- |
+| `write(str: string)` | `string` | Writes the given string it in the clipboard. |
 
 ## Example
 

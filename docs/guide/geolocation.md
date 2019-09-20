@@ -12,9 +12,11 @@ import { useGeolocation } from 'vue-use-web';
 const { coords, locatedAt, error } = useGeolocation();
 ```
 
-- coords: A [coordinates](https://developer.mozilla.org/en-US/docs/Web/API/Coordinates) for the last position retrieved.
-- locatedAt: A `Date` value representing the time of the last geolocation call.
-- error: A `string` containing an error message in case geolocation API fails.
+| State     | Type                                                                        | Description                                                              |
+| --------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| coords    | [Coordinates](https://developer.mozilla.org/en-US/docs/Web/API/Coordinates) | information about the position retrieved like the latitude and longitude |
+| locatedAt | `Date`                                                                      | The time of the last geolocation call                                    |
+| error     | `string`                                                                    | An error message in case geolocation API fails.                          |
 
 ## Example
 
