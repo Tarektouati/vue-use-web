@@ -1,8 +1,6 @@
 import { onMounted, reactive, toRefs, onUnmounted } from '@vue/composition-api';
 import { Writeable } from './types';
 
-let STATE: ReturnType<typeof initState>;
-
 function initState() {
   const defaults = () => ({
     x: null,
@@ -26,16 +24,14 @@ function initState() {
   return reactive(data);
 }
 
-function handler(event: DeviceMotionEvent) {
-  STATE.acceleration = event.acceleration;
-  STATE.accelerationIncludingGravity = event.accelerationIncludingGravity;
-  STATE.rotationRate = event.rotationRate;
-  STATE.interval = event.interval;
-}
-
 export function useDeviceMotion() {
-  if (!STATE) {
-    STATE = initState();
+  const state = initState();
+
+  function handler(event: DeviceMotionEvent) {
+    state.acceleration = event.acceleration;
+    state.accelerationIncludingGravity = event.accelerationIncludingGravity;
+    state.rotationRate = event.rotationRate;
+    state.interval = event.interval;
   }
 
   onMounted(() => {
@@ -47,6 +43,6 @@ export function useDeviceMotion() {
   });
 
   return {
-    ...toRefs(STATE)
+    ...toRefs(state)
   };
 }
