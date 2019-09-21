@@ -21,8 +21,47 @@ const { acceleration, accelerationIncludingGravity, rotationRate, interval } = u
 
 You can find [more information about the state on the MDN](https://developer.mozilla.org/en-US/docs/Web/API/DeviceMotionEvent#Properties).
 
+## Config
+
+`useDeviceMotion` function takes an options object as an optional parameter.
+
+```js
+import { useDeviceMotion } from 'vue-use-web';
+
+const { acceleration } = useDeviceMotion({
+  throttleMs: 30
+});
+```
+
+| Config     | Type     | Description                                    |
+| ---------- | -------- | ---------------------------------------------- |
+| throttleMs | `Number` | The debounce rate of the updates to the state. |
+
 ## Example
 
-```
-TODO
+```vue
+<template>
+  <div>
+    <h2>acceleration is:</h2>
+    <p>x:{{ acceleration.x }}</p>
+    <p>y:{{ acceleration.y }}</p>
+    <p>z:{{ acceleration.z }}</p>
+    <h2>rotation rate is:</h2>
+    <p>alpha:{{ rotationRate.alpha }}</p>
+    <p>beta:{{ rotationRate.beta }}</p>
+    <p>gamma:{{ rotationRate.gamma }}</p>
+  </div>
+</template>
+
+<script>
+import { useDeviceMotion } from "vue-use-web";
+
+export default {
+  setup() {
+    const { acceleration, rotationRate } = useDeviceMotion();
+
+    return { acceleration, rotationRate };
+  }
+};
+</script>
 ```
