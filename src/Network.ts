@@ -31,7 +31,7 @@ function makeState() {
 export function useNetwork() {
   const state = makeState();
 
-  function updateState() {
+  function updateNetworkInformation() {
     state.isOnline = window.navigator.onLine;
     state.offlineAt = state.isOnline ? undefined : new Date();
     // skip for non supported browsers.
@@ -56,10 +56,11 @@ export function useNetwork() {
   };
 
   onMounted(() => {
+    updateNetworkInformation();
     window.addEventListener('offline', onOffline);
     window.addEventListener('online', onOnline);
     if ('connection' in window.navigator) {
-      (window.navigator as any).connection.addEventListener('change', updateState);
+      (window.navigator as any).connection.addEventListener('change', updateNetworkInformation, false);
     }
   });
 
@@ -67,7 +68,7 @@ export function useNetwork() {
     window.removeEventListener('offline', onOffline);
     window.removeEventListener('online', onOnline);
     if ('connection' in window.navigator) {
-      (window.navigator as any).connection.removeEventListener('change', updateState);
+      (window.navigator as any).connection.removeEventListener('change', updateNetworkInformation, false);
     }
   });
 
