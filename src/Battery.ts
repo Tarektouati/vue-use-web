@@ -34,6 +34,7 @@ export function useBattery() {
     }
 
     (navigator as NavigatorWithBattery).getBattery().then(battery => {
+      updateBatteryInfo.call(battery);
       events.forEach(evt => {
         battery.addEventListener(evt, updateBatteryInfo);
       });
