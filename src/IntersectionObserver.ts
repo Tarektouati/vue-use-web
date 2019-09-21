@@ -19,7 +19,7 @@ export function useIntersectionObserver(
   let observer: IntersectionObserver;
   onMounted(() => {
     observer = new IntersectionObserver(([entry]) => {
-      state.intersectionRatio = state.intersectionRatio;
+      state.intersectionRatio = entry.intersectionRatio;
       if (entry.intersectionRatio > 0) {
         state.isIntersecting = true;
         state.isFullyInView = entry.intersectionRatio === 1;

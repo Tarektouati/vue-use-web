@@ -71,12 +71,12 @@ const { isIntersecting } = useIntersectionObserver(elem, {
 
 <script>
 import { ref } from '@vue/composition-api';
-import { useIntersectionRatio } from 'vue-use-web';
+import { useIntersectionObserver } from 'vue-use-web';
 
 export default {
   setup() {
     const elem = ref(null);
-    const { isIntersecting, isFullyInView, intersectionRatio } = useIntersectionRatio(elem);
+    const { isIntersecting, isFullyInView, intersectionRatio } = useIntersectionObserver(elem);
 
     return { isIntersecting, isFullyInView, intersectionRatio, elem };
   }
@@ -99,3 +99,5 @@ export default {
 }
 </style>
 ```
+
+<iframe src="https://codesandbox.io/embed/vue-use-web-geolocation-api-c06xh?fontsize=14&module=%2Fsrc%2FApp.vue" title="vue-use-web: intersection observer" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
