@@ -67,7 +67,7 @@ export default {
 
     // build a computed prop around it.
     const seconds = computed(() => {
-      if (offlineAt.value) {
+      if (!offlineAt.value) {
         return '0';
       }
 
@@ -79,3 +79,5 @@ export default {
 };
 </script>
 ```
+
+<iframe src="https://codesandbox.io/embed/vue-use-web-intersection-observer-2bif2?fontsize=14&module=%2Fsrc%2FApp.vue" title="vue-use-web: network information API" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
