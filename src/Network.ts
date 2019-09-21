@@ -16,7 +16,7 @@ interface NetworkState {
 
 function makeState() {
   const data: NetworkState = {
-    isOnline: false,
+    isOnline: true,
     offlineAt: undefined,
     downlink: undefined,
     downlinkMax: undefined,
