@@ -16,8 +16,32 @@ const { value } = useDeviceLight();
 | ----- | -------- | --------------------------------------------------------------------------- |
 | value | `Number` | The level of the ambient light in [lux](https://en.wikipedia.org/wiki/Lux). |
 
+## Use-cases
+
+Detecting the ambient light around user devices can have some applications:
+
+- Toggling between themes to adjust to the light level like using a dark theme in dark environments.
+
 ## Example
 
+You can test the following example on Firefox browser with an Andriod device with a light sensor. You should enable ambient light sensor in firefox's settings' `about:config`.
+
+```vue
+<template>
+  <div>Current Value is: {{ value }}</div>
+</template>
+
+<script>
+import { useDeviceLight } from "vue-use-web";
+
+export default {
+  setup() {
+    const { value } = useDeviceLight();
+
+    return { value };
+  }
+};
+</script>
 ```
-TODO
-```
+
+<iframe src="https://codesandbox.io/embed/vue-use-web-battery-status-api-0fsny?fontsize=14&module=%2Fsrc%2FApp.vue" title="vue-use-web: Device Light" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>

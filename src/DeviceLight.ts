@@ -6,6 +6,7 @@ export function useDeviceLight() {
     value.value = event.value;
   }
 
+  // TODO: Should we debounce/throttle the event?
   onMounted(() => {
     window.addEventListener('devicelight', handler);
   });
