@@ -36,6 +36,10 @@ write('hello world!');
 | -------------------- | -------------------------------------------- |
 | `write(str: string)` | Writes the given string it in the clipboard. |
 
+## Use-cases
+
+I'm sure you can think of multiple situations where you would like to copy the clipboard text or write some data into them. Mainly stuff like copying code in snippets, referral links, recovery codes or really any hard to remember text.
+
 ## Example
 
 ```vue
@@ -58,3 +62,5 @@ export default {
 };
 </script>
 ```
+
+<iframe src="https://codesandbox.io/embed/vue-use-web-battery-status-api-0fsny?fontsize=14&module=%2Fsrc%2FApp.vue" title="vue-use-web: Clipboard API" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
