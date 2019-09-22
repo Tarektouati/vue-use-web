@@ -22,7 +22,7 @@ export function useIntersectionObserver(
       state.intersectionRatio = entry.intersectionRatio;
       if (entry.intersectionRatio > 0) {
         state.isIntersecting = true;
-        state.isFullyInView = entry.intersectionRatio === 1;
+        state.isFullyInView = entry.intersectionRatio >= 1;
         return;
       }
 
