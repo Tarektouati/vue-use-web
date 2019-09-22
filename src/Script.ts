@@ -2,9 +2,9 @@ import { onMounted, reactive, toRefs } from '@vue/composition-api';
 
 interface ScriptOptions {
   src: string;
-  async?: boolean;
-  defer?: boolean;
-  module?: boolean;
+  // async?: boolean;
+  // defer?: boolean;
+  // module?: boolean;
 }
 
 export function useScript(opts: ScriptOptions) {
@@ -17,9 +17,9 @@ export function useScript(opts: ScriptOptions) {
   const promise = new Promise((resolve, reject) => {
     onMounted(() => {
       const script = document.createElement('script');
-      script.async = opts.async || true;
-      script.async = opts.defer || true;
-      script.noModule = !opts.module || false;
+      // script.async = opts.async || true;
+      // script.async = opts.defer || true;
+      // script.noModule = !opts.module || false;
       script.onload = function() {
         state.isLoading = false;
         state.success = true;
