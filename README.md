@@ -2,8 +2,6 @@
 
 Web APIs implemented as Vue.js composition functions.
 
-## ⚠ Not production ready yet ⚠
-
 This is a collection of [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) exposed as Vue.js composition hooks that's upcoming in Vue 3.0
 
 You can use them with Vue 2.0 using [@vue/composition-api](https://github.com/vuejs/composition-api) until Vue 3.0 gets out.
