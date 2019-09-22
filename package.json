@@ -1,6 +1,6 @@
 {
   "name": "vue-use-web",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Web APIs implemented as Vue.js composition functions",
   "module": "dist/vue-use-web.esm.js",
   "unpkg": "dist/vue-use-web.js",
@@ -95,5 +95,6 @@
   },
   "peerDependencies": {
     "@vue/composition-api": "^0.3.2"
-  }
+  },
+  "dependencies": {}
 }
