@@ -12,6 +12,20 @@ Web APIs are ever changing, this library aims to provide to Vue.js developers a 
 
 I initially was choosing to expose this as a [Stateful functional components](https://logaretm.com/blog/2019-06-29-stateful-functional-components/) but that isn't very handy and is not future proof. Implementing these APIs in Vue composition API (hooks) makes them ready for Vue 3.0 and beyond. Personally I think this is the perfect example to showcase the power of the Composition API.
 
+## Installation
+
+```bash
+# install with yarn
+yarn add @vue/composition-api vue-use-web
+
+# install with npm
+npm install @vue/composition-api vue-use-web
+```
+
+## Usage
+
+[Kindly Check the documentation for examples](https://logaretm.github.io/vue-use-web/).
+
 ## APIs
 
 Each composition function is designed to degrade gracefully so you can safely use them, but you should use these as a progressive enhancements for your apps. Check browsers compatibilities for each API.
