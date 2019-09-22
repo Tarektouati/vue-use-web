@@ -13,5 +13,6 @@ export * from './Network';
 export * from './PreferredColorScheme';
 export * from './PreferredLanguages';
 export * from './Script';
+export * from './UserMedia';
 export * from './WindowScrollPosition';
 export * from './WindowSize';
