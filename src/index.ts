@@ -12,3 +12,4 @@ export * from './WindowSize';
 export * from './IntersectionObserver';
 export * from './FullScreen';
 export * from './MousePosition';
+export * from './LocalStorage';

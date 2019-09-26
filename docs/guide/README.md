@@ -21,19 +21,20 @@ I initially was choosing to expose this as a [Stateful functional components](ht
 
 These are the currently implemented Web APIs and the planned ones.
 
-- [Battery Status API](./guide/battery.md).
-- [Clipboard API](./guide/clipboard.md).
-- [Device Light](./guide/device-light.md).
-- [Device Motion](./guide/device-motion.md).
-- [Device Orientation](./guide/device-orientation.md).
-- [Full-screen](./guide/fullscreen.md).
-- [Geo-location API](./guide/geolocation.md).
-- [Intersection Observer](./guide/intersection-observer.md).
-- [Mouse Position](./guide/mouse-position.md)
-- [Network Information API](./guide/network.md).
-- [Script](./guide/script.md).
-- [Window Scroll Position](./guide/scroll-position.md).
-- [Window Size](./guide/window-size.md).
+- [Battery Status API](./battery.md).
+- [Clipboard API](./clipboard.md).
+- [Device Light](./device-light.md).
+- [Device Motion](./device-motion.md).
+- [Device Orientation](./device-orientation.md).
+- [Full-screen](./fullscreen.md).
+- [Geo-location API](./geolocation.md).
+- [Intersection Observer](./intersection-observer.md).
+- [Local storage API](./local-storage.md).
+- [Mouse Position](./guide/mouse-position.md).
+- [Network Information API](./network.md).
+- [Script](./script.md).
+- [Window Scroll Position](./scroll-position.md).
+- [Window Size](./window-size.md).
 - Bluetooth <Badge text="WIP" type="warn" />.
 - Fetch <Badge text="WIP" type="warn" />.
 - Local storage <Badge text="WIP" type="warn" />.
