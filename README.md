@@ -49,7 +49,7 @@ Each composition function is designed to degrade gracefully so you can safely us
 
 ## Inspiration
 
-This library is inspired by [the-platform](https://github.com/palmerhq/the-platform) for React.js.
+This library is inspired by [the-platform](https://github.com/palmerhq/the-platform) and [standard-hooks](https://github.com/kripod/standard-hooks) for React.js.
 
 ## License
 
