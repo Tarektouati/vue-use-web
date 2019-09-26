@@ -2,6 +2,10 @@
 
 > The read-only [localStorage property](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) allows you to access a Storage object for the Document's origin; the stored data is saved across browser sessions. localStorage is similar to sessionStorage, except that while data stored in localStorage has no expiration time, data stored in sessionStorage gets cleared when the page session ends — that is, when the page is closed.
 
+This composition function adds a bunch of features on top of the new API, for starters the value will be synced with changes from other tabs. And you can use any type as the value, the value will be automatically serialized using `JSON.stringify` and de-serialized when read using `JSON.parse`.
+
+The value will also be persisted automatically when the component is unmounted.
+
 ## State
 
 The `useLocalStorage` function exposes the following reactive state:
@@ -15,10 +19,6 @@ const { value } = useLocalStorage('mykey');
 | State | Type  | Description                                                                                                                                                    |
 | ----- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | value | `any` | The value stored in the localstorage object, this value will be synced with any changes from other tabs and will be persisted once the component is umnounted. |
-
-:::tip
-You can use any type as the value, the value will be automatically serialized using `JSON.stringify` and de-serialized when read using `JSON.parse`.
-:::
 
 ## Config
 
