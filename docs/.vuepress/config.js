@@ -63,6 +63,7 @@ module.exports = {
         'fullscreen',
         'geolocation',
         'intersection-observer',
+        'local-storage',
         'mouse-position',
         'network',
         'script',

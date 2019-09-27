@@ -44,6 +44,7 @@ npm install @vue/composition-api vue-use-web
 - [Device Orientation](./guide/device-orientation.md).
 - [Full-screen](./guide/fullscreen.md).
 - [Geo-location API](./guide/geolocation.md).
+- [Local-storage API](./guide/local-storage.md)
 - [Intersection Observer](./guide/intersection-observer.md).
 - [Mouse Position](./guide/mouse-position.md)
 - [Network Information API](./guide/network.md).

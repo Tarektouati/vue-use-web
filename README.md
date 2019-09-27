@@ -43,6 +43,7 @@ Each composition function is designed to degrade gracefully so you can safely us
 - [x] Window Scroll Position.
 - [x] Full-screen.
 - [x] Intersection Observer.
+- [x] Local Storage.
 - [ ] Bluetooth.
 - [ ] Notification.
 - [ ] Share.
