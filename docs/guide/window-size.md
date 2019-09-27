@@ -1,4 +1,4 @@
-# Window Scroll Position
+# Window Size
 
 This API provides access to the `width` and `height` of the browser window.
 
