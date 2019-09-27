@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted, Ref } from '@vue/composition-api';
+import { ref, onMounted, onUnmounted, Ref, watch } from '@vue/composition-api';
 
 function parseValue(serializedVal: string) {
   let value = null;
@@ -11,7 +11,7 @@ function parseValue(serializedVal: string) {
   return value;
 }
 
-export function useLocalStorage(key: string, def: any = null) {
+export function useLocalStorage(key: string, def = undefined) {
   const value: Ref<any> = ref(null);
   const init = () => {
     const serializedVal = localStorage.getItem(key);
@@ -23,22 +23,31 @@ export function useLocalStorage(key: string, def: any = null) {
     value.value = def;
   };
 
+  let initialized = false;
+
+  // early init if possible.
   if (typeof window !== 'undefined') {
     init();
-  } else {
-    onMounted(init);
+    initialized = true;
   }
 
-  onUnmounted(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem(key, JSON.stringify(value.value));
-    }
-  });
-
-  window.addEventListener('storage', function(e) {
+  function handler(e: StorageEvent) {
     if (e.key === key) {
       value.value = e.newValue ? parseValue(e.newValue) : null;
     }
+  }
+
+  onMounted(() => {
+    if (!initialized) {
+      init();
+    }
+
+    window.addEventListener('storage', handler, true);
+  });
+
+  onUnmounted(() => {
+    localStorage.setItem(key, JSON.stringify(value.value));
+    window.removeEventListener('storage', handler);
   });
 
   return {
