@@ -29,6 +29,7 @@ These are the currently implemented Web APIs and the planned ones.
 - [Full-screen](./guide/fullscreen.md).
 - [Geo-location API](./guide/geolocation.md).
 - [Intersection Observer](./guide/intersection-observer.md).
+- [Mouse Position](./guide/mouse-position.md)
 - [Network Information API](./guide/network.md).
 - [Script](./guide/script.md).
 - [Window Scroll Position](./guide/scroll-position.md).
