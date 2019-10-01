@@ -13,3 +13,4 @@ export * from './IntersectionObserver';
 export * from './FullScreen';
 export * from './MousePosition';
 export * from './LocalStorage';
+export * from './PreferredLanguages';
