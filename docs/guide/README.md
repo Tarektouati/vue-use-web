@@ -35,6 +35,7 @@ These are the currently implemented Web APIs and the planned ones.
 - [Script](./script.md).
 - [Window Scroll Position](./scroll-position.md).
 - [Window Size](./window-size.md).
+- [Preferred Languages](./preferred-languages.md).
 - Bluetooth <Badge text="WIP" type="warn" />.
 - Fetch <Badge text="WIP" type="warn" />.
 - Local storage <Badge text="WIP" type="warn" />.

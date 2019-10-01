@@ -68,7 +68,8 @@ module.exports = {
         'network',
         'script',
         'scroll-position',
-        'window-size'
+        'window-size',
+        'preferred-languages'
       ],
       '/examples/': []
     },
