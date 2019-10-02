@@ -66,6 +66,7 @@ module.exports = {
         'local-storage',
         'mouse-position',
         'network',
+        'preferred-color-scheme',
         'script',
         'scroll-position',
         'window-size'
