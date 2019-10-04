@@ -6,6 +6,7 @@
   "unpkg": "dist/vue-use-web.js",
   "main": "dist/vue-use-web.js",
   "types": "dist/types/index.d.ts",
+  "repository": "https://github.com/logaretm/vue-use-web",
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
