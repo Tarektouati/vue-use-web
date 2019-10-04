@@ -21,21 +21,21 @@ I initially was choosing to expose this as a [Stateful functional components](ht
 
 These are the currently implemented Web APIs and the planned ones.
 
-- [Battery Status API](./battery.md).
-- [Clipboard API](./clipboard.md).
-- [Device Light](./device-light.md).
-- [Device Motion](./device-motion.md).
-- [Device Orientation](./device-orientation.md).
-- [Full-screen](./fullscreen.md).
-- [Geo-location API](./geolocation.md).
-- [Intersection Observer](./intersection-observer.md).
-- [Local storage API](./local-storage.md).
-- [Mouse Position](./guide/mouse-position.md).
-- [Network Information API](./network.md).
-- [Preferred Color Scheme](./preferred-color-scheme.md).
-- [Script](./script.md).
-- [Window Scroll Position](./scroll-position.md).
-- [Window Size](./window-size.md).
+- [Battery Status API](../battery.md).
+- [Clipboard API](../clipboard.md).
+- [Device Light](../device-light.md).
+- [Device Motion](../device-motion.md).
+- [Device Orientation](../device-orientation.md).
+- [Full-screen](../fullscreen.md).
+- [Geo-location API](../geolocation.md).
+- [Intersection Observer](../intersection-observer.md).
+- [Local storage API](../local-storage.md).
+- [Mouse Position](../guide/mouse-position.md).
+- [Network Information API](../network.md).
+- [Preferred Color Scheme](../preferred-color-scheme.md).
+- [Script](../script.md).
+- [Window Scroll Position](../scroll-position.md).
+- [Window Size](../window-size.md).
 - Bluetooth <Badge text="WIP" type="warn" />.
 - Fetch <Badge text="WIP" type="warn" />.
 - Local storage <Badge text="WIP" type="warn" />.
