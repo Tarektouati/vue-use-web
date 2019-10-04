@@ -36,4 +36,6 @@ export function usePreferredColorScheme() {
       themeMedia.removeEventListener('change', handler);
     });
   });
+
+  return value;
 }
