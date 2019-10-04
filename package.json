@@ -1,6 +1,6 @@
 {
   "name": "vue-use-web",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Web APIs implemented as Vue.js composition functions",
   "module": "dist/vue-use-web.esm.js",
   "unpkg": "dist/vue-use-web.js",
@@ -15,7 +15,7 @@
     "lint": "eslint . '**/*.{js,jsx,ts,tsx}' --fix",
     "ts:defs": "./scripts/defs.sh",
     "build": "node ./scripts/build && npm run ts:defs",
-    "prepublish-lib": "npm run build"
+    "prepublish": "npm run build"
   },
   "author": "Abdelrahman Awad <logaretm1@gmail.com>",
   "license": "MIT",
