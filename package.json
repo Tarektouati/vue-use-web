@@ -14,7 +14,8 @@
     "test:cover": "jest --coverage",
     "lint": "eslint . '**/*.{js,jsx,ts,tsx}' --fix",
     "ts:defs": "./scripts/defs.sh",
-    "build": "node ./scripts/build && npm run ts:defs"
+    "build": "node ./scripts/build && npm run ts:defs",
+    "prepublish-lib": "npm run build"
   },
   "author": "Abdelrahman Awad <logaretm1@gmail.com>",
   "license": "MIT",
