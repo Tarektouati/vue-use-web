@@ -27,13 +27,13 @@ export function usePreferredColorScheme() {
 
   onMounted(() => {
     Object.values(themesObj).forEach(theme => {
-      theme.addEventListener('change', handler);
+      theme.addListener(handler);
     });
   });
 
   onUnmounted(() => {
     Object.values(themesObj).forEach(themeMedia => {
-      themeMedia.removeEventListener('change', handler);
+      themeMedia.removeListener(handler);
     });
   });
 
