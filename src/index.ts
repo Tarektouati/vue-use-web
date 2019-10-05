@@ -11,6 +11,7 @@ export * from './LocalStorage';
 export * from './MousePosition';
 export * from './Network';
 export * from './PreferredColorScheme';
+export * from './PreferredLanguages';
 export * from './Script';
 export * from './WindowScrollPosition';
 export * from './WindowSize';

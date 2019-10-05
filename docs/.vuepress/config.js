@@ -69,7 +69,8 @@ module.exports = {
         'preferred-color-scheme',
         'script',
         'scroll-position',
-        'window-size'
+        'window-size',
+        'preferred-languages'
       ],
       '/examples/': []
     },

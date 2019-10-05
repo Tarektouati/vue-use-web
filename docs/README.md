@@ -48,6 +48,7 @@ npm install @vue/composition-api vue-use-web
 - [Intersection Observer](./guide/intersection-observer.md).
 - [Mouse Position](./guide/mouse-position.md)
 - [Network Information API](./guide/network.md).
+- [Preferred Languages](./guide/preferred-languages.md).
 - [Script](./guide/script.md).
 - [Window Scroll Position](./guide/scroll-position.md).
 - [Window Size](./guide/window-size.md).
