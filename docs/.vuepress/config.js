@@ -67,10 +67,10 @@ module.exports = {
         'mouse-position',
         'network',
         'preferred-color-scheme',
+        'preferred-languages',
         'script',
         'scroll-position',
-        'window-size',
-        'preferred-languages'
+        'window-size'
       ],
       '/examples/': []
     },
