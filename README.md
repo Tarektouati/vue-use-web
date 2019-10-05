@@ -30,23 +30,27 @@ npm install @vue/composition-api vue-use-web
 
 Each composition function is designed to degrade gracefully so you can safely use them, but you should use these as a progressive enhancements for your apps. Check browsers compatibilities for each API.
 
-- [x] Geo-location.
-- [x] Battery.
-- [x] Network.
-- [x] Clipboard.
-- [x] Fetch.
-- [x] Device Motion.
-- [x] Device Light.
-- [x] Device Orientation.
-- [x] Script.
-- [x] Window Size.
-- [x] Window Scroll Position.
-- [x] Full-screen.
-- [x] Intersection Observer.
-- [x] Local Storage.
-- [ ] Bluetooth.
-- [ ] Notification.
-- [ ] Share.
+- [Battery Status API](https://logaretm.github.io/vue-use-web/guide/battery.md).
+- [Clipboard API](https://logaretm.github.io/vue-use-web/guide/clipboard.md).
+- [Device Light](https://logaretm.github.io/vue-use-web/guide/device-light.md).
+- [Device Motion](https://logaretm.github.io/vue-use-web/guide/device-motion.md).
+- [Device Orientation](https://logaretm.github.io/vue-use-web/guide/device-orientation.md).
+- [Full-screen](https://logaretm.github.io/vue-use-web/guide/fullscreen.md).
+- [Geo-location API](https://logaretm.github.io/vue-use-web/guide/geolocation.md).
+- [Local-storage API](https://logaretm.github.io/vue-use-web/guide/local-storage.md)
+- [Intersection Observer](https://logaretm.github.io/vue-use-web/guide/intersection-observer.md).
+- [Mouse Position](https://logaretm.github.io/vue-use-web/guide/mouse-position.md)
+- [Network Information API](https://logaretm.github.io/vue-use-web/guide/network.md).
+- [Preferred Color Scheme](https://logaretm.github.io/vue-use-web/guide/preferred-color-scheme.md).
+- [Preferred Languages](https://logaretm.github.io/vue-use-web/guide/preferred-languages.md).
+- [Script](https://logaretm.github.io/vue-use-web/guide/script.md).
+- [Window Scroll Position](https://logaretm.github.io/vue-use-web/guide/scroll-position.md).
+- [Window Size](https://logaretm.github.io/vue-use-web/guide/window-size.md).
+- Bluetooth (WIP).
+- Fetch (WIP).
+- Local storage (WIP).
+- Notification (WIP).
+- Share (WIP).
 
 ## Inspiration
 
