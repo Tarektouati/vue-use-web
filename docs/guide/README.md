@@ -32,6 +32,7 @@ These are the currently implemented Web APIs and the planned ones.
 - [Local storage API](./local-storage.md).
 - [Mouse Position](./guide/mouse-position.md).
 - [Network Information API](./network.md).
+- [Preferred Color Scheme](./preferred-color-scheme.md).
 - [Script](./script.md).
 - [Window Scroll Position](./scroll-position.md).
 - [Window Size](./window-size.md).

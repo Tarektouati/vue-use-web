@@ -13,6 +13,7 @@ coverage
 .idea
 .vscode
 .vs
+*.swp
 
 # logs
 
