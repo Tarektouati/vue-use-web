@@ -26,6 +26,7 @@ These are the currently implemented Web APIs and the planned ones.
 - [Device Light](./device-light.md).
 - [Device Motion](./device-motion.md).
 - [Device Orientation](./device-orientation.md).
+- [Fetch API](./fetch.md).
 - [Full-screen](./fullscreen.md).
 - [Geo-location API](./geolocation.md).
 - [Intersection Observer](./intersection-observer.md).
@@ -38,7 +39,6 @@ These are the currently implemented Web APIs and the planned ones.
 - [Window Scroll Position](./scroll-position.md).
 - [Window Size](./window-size.md).
 - Bluetooth <Badge text="WIP" type="warn" />.
-- Fetch <Badge text="WIP" type="warn" />.
 - Local storage <Badge text="WIP" type="warn" />.
 - Notification <Badge text="WIP" type="warn" />.
 - Share <Badge text="WIP" type="warn" />.
