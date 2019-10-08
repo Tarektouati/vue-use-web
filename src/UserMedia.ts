@@ -1,32 +1,25 @@
-import { onMounted, ref } from '@vue/composition-api';
+import { onMounted, reactive, toRefs } from '@vue/composition-api';
 
 export function useUserMedia(constraints: MediaStreamConstraints) {
-  const error = ref('');
+  const dataDefs: { error: Error | null; promise: Promise<MediaStream> | null } = {
+    error: null,
+    promise: null
+  };
 
-  const promise: Promise<MediaStream> = new Promise((resolve, reject) => {
+  const state = reactive(dataDefs);
+  state.promise = new Promise((resolve, reject) => {
     onMounted(() => {
       navigator.mediaDevices
         .getUserMedia(constraints)
         .then(resolve)
         .catch(err => {
-          if (err.name === 'ConstraintNotSatisfiedError') {
-            error.value = 'constrains not satisfied';
-            return;
-          }
-
-          if (err.name === 'PermissionDeniedError') {
-            error.value = 'user denied permission';
-            return;
-          }
-
-          error.value = `${err.name}: ${err.message}`;
+          state.error = err;
           reject(err);
         });
     });
   });
 
   return {
-    error,
-    toPromise: () => promise
+    ...toRefs(state)
   };
 }
