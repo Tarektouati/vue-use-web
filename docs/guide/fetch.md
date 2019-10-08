@@ -50,7 +50,6 @@ const { cancel } = useFetch(elem);
 </template>
 
 <script>
-// import { ref } from "@vue/composition-api";
 import { useFetch } from "vue-use-web";
 
 export default {
