@@ -37,7 +37,39 @@ const { cancel } = useFetch(elem);
 ## Example
 
 ```vue
+<template>
+  <div>
+    <div>{{ isLoading }}</div>
+    <div>{{ success }}</div>
+    <div>{{ text }}</div>
+    <div>{{ blob }}</div>
+    <div>{{ json }}</div>
+    <div>{{ cancelled }}</div>
+    <button @click="cancel">Cancel Request</button>
+  </div>
+</template>
 
+<script>
+// import { ref } from "@vue/composition-api";
+import { useFetch } from "vue-use-web";
+
+export default {
+  setup() {
+    const {
+      isLoading,
+      error,
+      success,
+      cancel,
+      text,
+      blob,
+      json,
+      cancelled
+    } = useFetch("/data.json");
+
+    return { isLoading, error, success, cancel, text, blob, json, cancelled };
+  }
+};
+</script>
 ```
 
 TODO: useFetch example
