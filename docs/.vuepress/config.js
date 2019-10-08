@@ -70,6 +70,7 @@ module.exports = {
         'preferred-languages',
         'script',
         'scroll-position',
+        'user-media',
         'window-size'
       ],
       '/examples/': []

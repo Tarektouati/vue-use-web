@@ -44,6 +44,7 @@ Each composition function is designed to degrade gracefully so you can safely us
 - [Preferred Color Scheme](https://logaretm.github.io/vue-use-web/guide/preferred-color-scheme.md).
 - [Preferred Languages](https://logaretm.github.io/vue-use-web/guide/preferred-languages.md).
 - [Script](https://logaretm.github.io/vue-use-web/guide/script.md).
+- [User Media](https://logaretm.github.io/vue-use-web/user-media.md)
 - [Window Scroll Position](https://logaretm.github.io/vue-use-web/guide/scroll-position.md).
 - [Window Size](https://logaretm.github.io/vue-use-web/guide/window-size.md).
 - Bluetooth (WIP).
