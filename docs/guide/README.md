@@ -39,6 +39,5 @@ These are the currently implemented Web APIs and the planned ones.
 - [Window Scroll Position](./scroll-position.md).
 - [Window Size](./window-size.md).
 - Bluetooth <Badge text="WIP" type="warn" />.
-- Local storage <Badge text="WIP" type="warn" />.
 - Notification <Badge text="WIP" type="warn" />.
 - Share <Badge text="WIP" type="warn" />.

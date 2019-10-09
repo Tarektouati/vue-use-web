@@ -38,7 +38,7 @@ Each composition function is designed to degrade gracefully so you can safely us
 - [Fetch API](https://logaretm.github.io/vue-use-web/guide/fetch.md).
 - [Full-screen](https://logaretm.github.io/vue-use-web/guide/fullscreen.md).
 - [Geo-location API](https://logaretm.github.io/vue-use-web/guide/geolocation.md).
-- [Local-storage API](https://logaretm.github.io/vue-use-web/guide/local-storage.md)
+- [Localstorage API](https://logaretm.github.io/vue-use-web/guide/local-storage.md)
 - [Intersection Observer](https://logaretm.github.io/vue-use-web/guide/intersection-observer.md).
 - [Mouse Position](https://logaretm.github.io/vue-use-web/guide/mouse-position.md)
 - [Network Information API](https://logaretm.github.io/vue-use-web/guide/network.md).
@@ -48,7 +48,6 @@ Each composition function is designed to degrade gracefully so you can safely us
 - [Window Scroll Position](https://logaretm.github.io/vue-use-web/guide/scroll-position.md).
 - [Window Size](https://logaretm.github.io/vue-use-web/guide/window-size.md).
 - Bluetooth (WIP).
-- Local storage (WIP).
 - Notification (WIP).
 - Share (WIP).
 
