@@ -35,6 +35,7 @@ Each composition function is designed to degrade gracefully so you can safely us
 - [Device Light](https://logaretm.github.io/vue-use-web/guide/device-light.md).
 - [Device Motion](https://logaretm.github.io/vue-use-web/guide/device-motion.md).
 - [Device Orientation](https://logaretm.github.io/vue-use-web/guide/device-orientation.md).
+- [Fetch API](https://logaretm.github.io/vue-use-web/guide/fetch.md).
 - [Full-screen](https://logaretm.github.io/vue-use-web/guide/fullscreen.md).
 - [Geo-location API](https://logaretm.github.io/vue-use-web/guide/geolocation.md).
 - [Local-storage API](https://logaretm.github.io/vue-use-web/guide/local-storage.md)
@@ -47,7 +48,6 @@ Each composition function is designed to degrade gracefully so you can safely us
 - [Window Scroll Position](https://logaretm.github.io/vue-use-web/guide/scroll-position.md).
 - [Window Size](https://logaretm.github.io/vue-use-web/guide/window-size.md).
 - Bluetooth (WIP).
-- Fetch (WIP).
 - Local storage (WIP).
 - Notification (WIP).
 - Share (WIP).

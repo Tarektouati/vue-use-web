@@ -42,6 +42,7 @@ npm install @vue/composition-api vue-use-web
 - [Device Light](./guide/device-light.md).
 - [Device Motion](./guide/device-motion.md).
 - [Device Orientation](./guide/device-orientation.md).
+- [Fetch API](./guide/fetch.md).
 - [Full-screen](./guide/fullscreen.md).
 - [Geo-location API](./guide/geolocation.md).
 - [Local-storage API](./guide/local-storage.md)
@@ -54,7 +55,6 @@ npm install @vue/composition-api vue-use-web
 - [Window Scroll Position](./guide/scroll-position.md).
 - [Window Size](./guide/window-size.md).
 - Bluetooth <Badge text="WIP" type="warn" />.
-- Fetch <Badge text="WIP" type="warn" />.
 - Local storage <Badge text="WIP" type="warn" />.
 - Notification <Badge text="WIP" type="warn" />.
 - Share <Badge text="WIP" type="warn" />.
