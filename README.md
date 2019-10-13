@@ -30,23 +30,23 @@ npm install @vue/composition-api vue-use-web
 
 Each composition function is designed to degrade gracefully so you can safely use them, but you should use these as a progressive enhancements for your apps. Check browsers compatibilities for each API.
 
-- [Battery Status API](https://logaretm.github.io/vue-use-web/guide/battery.md).
-- [Clipboard API](https://logaretm.github.io/vue-use-web/guide/clipboard.md).
-- [Device Light](https://logaretm.github.io/vue-use-web/guide/device-light.md).
-- [Device Motion](https://logaretm.github.io/vue-use-web/guide/device-motion.md).
-- [Device Orientation](https://logaretm.github.io/vue-use-web/guide/device-orientation.md).
-- [Fetch API](https://logaretm.github.io/vue-use-web/guide/fetch.md).
-- [Full-screen](https://logaretm.github.io/vue-use-web/guide/fullscreen.md).
-- [Geo-location API](https://logaretm.github.io/vue-use-web/guide/geolocation.md).
-- [Localstorage API](https://logaretm.github.io/vue-use-web/guide/local-storage.md)
-- [Intersection Observer](https://logaretm.github.io/vue-use-web/guide/intersection-observer.md).
-- [Mouse Position](https://logaretm.github.io/vue-use-web/guide/mouse-position.md)
-- [Network Information API](https://logaretm.github.io/vue-use-web/guide/network.md).
-- [Preferred Color Scheme](https://logaretm.github.io/vue-use-web/guide/preferred-color-scheme.md).
-- [Preferred Languages](https://logaretm.github.io/vue-use-web/guide/preferred-languages.md).
-- [Script](https://logaretm.github.io/vue-use-web/guide/script.md).
-- [Window Scroll Position](https://logaretm.github.io/vue-use-web/guide/scroll-position.md).
-- [Window Size](https://logaretm.github.io/vue-use-web/guide/window-size.md).
+- [Battery Status API](https://logaretm.github.io/vue-use-web/guide/battery.html).
+- [Clipboard API](https://logaretm.github.io/vue-use-web/guide/clipboard.html).
+- [Device Light](https://logaretm.github.io/vue-use-web/guide/device-light.html).
+- [Device Motion](https://logaretm.github.io/vue-use-web/guide/device-motion.html).
+- [Device Orientation](https://logaretm.github.io/vue-use-web/guide/device-orientation.html).
+- [Fetch API](https://logaretm.github.io/vue-use-web/guide/fetch.html).
+- [Full-screen](https://logaretm.github.io/vue-use-web/guide/fullscreen.html).
+- [Geo-location API](https://logaretm.github.io/vue-use-web/guide/geolocation.html).
+- [Localstorage API](https://logaretm.github.io/vue-use-web/guide/local-storage.html)
+- [Intersection Observer](https://logaretm.github.io/vue-use-web/guide/intersection-observer.html).
+- [Mouse Position](https://logaretm.github.io/vue-use-web/guide/mouse-position.html)
+- [Network Information API](https://logaretm.github.io/vue-use-web/guide/network.html).
+- [Preferred Color Scheme](https://logaretm.github.io/vue-use-web/guide/preferred-color-scheme.html).
+- [Preferred Languages](https://logaretm.github.io/vue-use-web/guide/preferred-languages.html).
+- [Script](https://logaretm.github.io/vue-use-web/guide/script.html).
+- [Window Scroll Position](https://logaretm.github.io/vue-use-web/guide/scroll-position.html).
+- [Window Size](https://logaretm.github.io/vue-use-web/guide/window-size.html).
 - Bluetooth (WIP).
 - Notification (WIP).
 - Share (WIP).
