@@ -41,7 +41,7 @@ Each composition function is designed to degrade gracefully so you can safely us
 - [Localstorage API](https://logaretm.github.io/vue-use-web/guide/local-storage.html)
 - [Intersection Observer](https://logaretm.github.io/vue-use-web/guide/intersection-observer.html).
 - [Mouse Position](https://logaretm.github.io/vue-use-web/guide/mouse-position.html)
-- [Network Information API](https://logaretm.github.io/vue-use-web/guide/network.md).
+- [Network Information API](https://logaretm.github.io/vue-use-web/guide/network.html).
 - [Preferred Color Scheme](https://logaretm.github.io/vue-use-web/guide/preferred-color-scheme.html).
 - [Preferred Languages](https://logaretm.github.io/vue-use-web/guide/preferred-languages.html).
 - [Script](https://logaretm.github.io/vue-use-web/guide/script.html).
