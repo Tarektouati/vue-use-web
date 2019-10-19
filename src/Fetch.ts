@@ -5,8 +5,12 @@ export function useFetch(url: RequestInfo, options: RequestInit) {
     blob: Blob | null;
     json: any;
     text: string;
+    statusText: string;
+    status: number | undefined;
     isLoading: boolean;
+    headers: Record<string, string>;
     success: boolean;
+    type: ResponseType | 'unknown';
     error: boolean;
     cancelled: boolean;
   } = {
@@ -16,7 +20,11 @@ export function useFetch(url: RequestInfo, options: RequestInit) {
     cancelled: false,
     json: null,
     blob: null,
-    text: ''
+    text: '',
+    type: 'unknown',
+    status: undefined,
+    statusText: '',
+    headers: {}
   };
 
   const state = reactive(stateDefs);
@@ -37,6 +45,15 @@ export function useFetch(url: RequestInfo, options: RequestInit) {
         state.success = res.ok;
         state.error = !res.ok;
         state.isLoading = false;
+        state.statusText = res.statusText;
+        state.status = res.status;
+        state.type = res.type;
+        const headers: Record<string, string> = {};
+        res.headers.forEach((value, key) => {
+          headers[key] = value;
+        });
+
+        state.headers = headers;
 
         return Promise.all([res.clone().text(), res.clone().blob(), res.json()]);
       })
