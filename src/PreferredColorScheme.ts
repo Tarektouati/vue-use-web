@@ -1,41 +1,27 @@
-import { ref, onMounted, onUnmounted } from '@vue/composition-api';
+import { computed, Ref } from '@vue/composition-api';
+import { useMedia } from './Media';
 
-export function usePreferredColorScheme() {
-  const themesObj: Record<string, MediaQueryList> = {
-    light: window.matchMedia('(prefers-color-scheme: light)'),
-    dark: window.matchMedia('(prefers-color-scheme: dark)'),
-    'no-preference': window.matchMedia('(prefers-color-scheme: no-preference)')
+export function usePreferredColorScheme(): Ref<'dark' | 'light' | 'no-preference'> {
+  const queries = {
+    light: '(prefers-color-scheme: light)',
+    dark: '(prefers-color-scheme: dark)',
+    'no-preference': '(prefers-color-scheme: no-preference)'
   };
 
-  const value = ref(getTheme());
+  const isDark = useMedia(queries.dark);
+  const isLight = useMedia(queries.light);
 
-  function getTheme() {
-    let theme = null;
-    for (const key in themesObj) {
-      if (themesObj[key].matches) {
-        theme = key;
-        break;
-      }
+  const theme = computed(() => {
+    if (isDark.value) {
+      return 'dark';
     }
 
-    return theme;
-  }
+    if (isLight.value) {
+      return 'light';
+    }
 
-  function handler() {
-    value.value = getTheme();
-  }
-
-  onMounted(() => {
-    Object.values(themesObj).forEach(theme => {
-      theme.addListener(handler);
-    });
+    return 'no-preference';
   });
 
-  onUnmounted(() => {
-    Object.values(themesObj).forEach(themeMedia => {
-      themeMedia.removeListener(handler);
-    });
-  });
-
-  return value;
+  return theme;
 }

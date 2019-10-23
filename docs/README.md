@@ -47,6 +47,7 @@ npm install @vue/composition-api vue-use-web
 - [Geo-location API](./guide/geolocation.md).
 - [Local-storage API](./guide/local-storage.md)
 - [Intersection Observer](./guide/intersection-observer.md).
+- [Media Query](./guide/media-query.md)
 - [Mouse Position](./guide/mouse-position.md)
 - [Network Information API](./guide/network.md).
 - [Preferred Color Scheme](./guide/preferred-color-scheme.md).

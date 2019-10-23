@@ -31,7 +31,8 @@ These are the currently implemented Web APIs and the planned ones.
 - [Geo-location API](./geolocation.md).
 - [Intersection Observer](./intersection-observer.md).
 - [Local storage API](./local-storage.md).
-- [Mouse Position](./guide/mouse-position.md).
+- [Media Query](./media-query.md).
+- [Mouse Position](./mouse-position.md).
 - [Network Information API](./network.md).
 - [Preferred Color Scheme](./preferred-color-scheme.md).
 - [Preferred Languages](./preferred-languages.md).

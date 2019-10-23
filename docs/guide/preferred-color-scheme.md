@@ -2,6 +2,8 @@
 
 > The [matchMedia preferred-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) is used to detect the user's preference for a `light` or `dark` theme. This can be useful when you should adapt your UI depending on the user preference.
 
+## State
+
 ```js
 import { usePreferredColorScheme } from 'vue-use-web';
 
@@ -11,6 +13,10 @@ const scheme = usePreferredColorScheme();
 | State | Type          | Description                                                                              |
 | ----- | ------------- | ---------------------------------------------------------------------------------------- |
 | theme | `Ref<String>` | Current user color scheme preference, will be one of 'dark', 'light' and 'no-preference' |
+
+:::tip
+This composable function uses [`useMedia`](./media-query.md) internally.
+:::
 
 ## Example
 

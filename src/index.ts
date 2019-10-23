@@ -8,6 +8,7 @@ export * from './FullScreen';
 export * from './Geolocation';
 export * from './IntersectionObserver';
 export * from './LocalStorage';
+export * from './Media';
 export * from './MousePosition';
 export * from './Network';
 export * from './PreferredColorScheme';
