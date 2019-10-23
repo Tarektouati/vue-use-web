@@ -65,6 +65,7 @@ module.exports = {
         'geolocation',
         'intersection-observer',
         'local-storage',
+        'media-query',
         'mouse-position',
         'network',
         'preferred-color-scheme',
