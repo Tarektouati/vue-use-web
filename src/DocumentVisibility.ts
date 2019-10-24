@@ -8,19 +8,19 @@ import { hasWindow, useDocumentEventListener } from './utils';
  *
  * @example
  * setup() {
- *  const isCurrentlyVisible = useDocumentVisibility()
- *  watch(() => console.log(isCurrentlyVisible))
+ *  const isVisible = useDocumentVisibility()
+ *  watch(() => console.log(isVisible))
  * }
  *
  */
 export function useDocumentVisibility(): Ref<boolean> {
-  const isVisible = () => document.visibilityState === 'visible';
+  const documentIsVisible = () => document.visibilityState === 'visible';
 
-  const isCurrentlyVisible: Ref<boolean> = ref(hasWindow ? isVisible() : true);
+  const isVisible: Ref<boolean> = ref(hasWindow ? documentIsVisible() : true);
 
   useDocumentEventListener('visibilitychange', () => {
-    isCurrentlyVisible.value = isVisible();
+    isVisible.value = documentIsVisible();
   });
 
-  return isCurrentlyVisible;
+  return isVisible;
 }
