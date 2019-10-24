@@ -23,21 +23,28 @@ export function throttle<T extends (...args: any[]) => void>(wait: number, fn: T
 export const hasWindow = typeof window !== 'undefined';
 
 export function useEventListener(
-  element: Document | Window | Element,
+  element: EventTarget,
   type: string,
-  listener: EventListenerOrEventListenerObject
+  listener: EventListenerOrEventListenerObject,
+  options?: EventListenerOptions
 ) {
   onMounted(() => {
-    element.addEventListener(type, listener);
+    element.addEventListener(type, listener, options);
   });
 
   onUnmounted(() => {
-    element.removeEventListener(type, listener);
+    element.removeEventListener(type, listener, options);
   });
 }
 
-export const useDocumentEventListener = (type: string, listener: EventListenerOrEventListenerObject) =>
-  useEventListener(document, type, listener);
+export const useDocumentEventListener = (
+  type: string,
+  listener: EventListenerOrEventListenerObject,
+  options?: EventListenerOptions
+) => useEventListener(document, type, listener, options);
 
-export const useWindowEventListener = (type: string, listener: EventListenerOrEventListenerObject) =>
-  useEventListener(window, type, listener);
+export const useWindowEventListener = (
+  type: string,
+  listener: EventListenerOrEventListenerObject,
+  options?: EventListenerOptions
+) => useEventListener(window, type, listener, options);
