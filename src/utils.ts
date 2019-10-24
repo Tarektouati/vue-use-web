@@ -37,14 +37,12 @@ export function useEventListener(
   });
 }
 
-export const useDocumentEventListener = (
+const eventListenerFor = (element: EventTarget) => (
   type: string,
   listener: EventListenerOrEventListenerObject,
   options?: EventListenerOptions
-) => useEventListener(document, type, listener, options);
+) => useEventListener(element, type, listener, options);
 
-export const useWindowEventListener = (
-  type: string,
-  listener: EventListenerOrEventListenerObject,
-  options?: EventListenerOptions
-) => useEventListener(window, type, listener, options);
+export const useDocumentEventListener = eventListenerFor(document);
+
+export const useWindowEventListener = eventListenerFor(window);
