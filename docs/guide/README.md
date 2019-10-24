@@ -26,6 +26,7 @@ These are the currently implemented Web APIs and the planned ones.
 - [Device Light](./device-light.md).
 - [Device Motion](./device-motion.md).
 - [Device Orientation](./device-orientation.md).
+- [Document Visibility](./document-visibility.md)
 - [Fetch API](./fetch.md).
 - [Full-screen](./fullscreen.md).
 - [Geo-location API](./geolocation.md).

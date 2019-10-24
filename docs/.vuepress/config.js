@@ -60,6 +60,7 @@ module.exports = {
         'device-light',
         'device-motion',
         'device-orientation',
+        'document-visibility',
         'fetch',
         'fullscreen',
         'geolocation',

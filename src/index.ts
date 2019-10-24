@@ -3,6 +3,7 @@ export * from './Clipboard';
 export * from './DeviceLight';
 export * from './DeviceMotion';
 export * from './DeviceOrientation';
+export * from './DocumentVisibility';
 export * from './Fetch';
 export * from './FullScreen';
 export * from './Geolocation';
