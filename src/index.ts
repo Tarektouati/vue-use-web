@@ -15,5 +15,6 @@ export * from './Network';
 export * from './PreferredColorScheme';
 export * from './PreferredLanguages';
 export * from './Script';
+export * from './WebSocket';
 export * from './WindowScrollPosition';
 export * from './WindowSize';

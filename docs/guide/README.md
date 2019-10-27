@@ -38,6 +38,7 @@ These are the currently implemented Web APIs and the planned ones.
 - [Preferred Color Scheme](./preferred-color-scheme.md).
 - [Preferred Languages](./preferred-languages.md).
 - [Script](./script.md).
+- [WebSocket](./guide/websocket.md).
 - [Window Scroll Position](./scroll-position.md).
 - [Window Size](./window-size.md).
 - Bluetooth <Badge text="WIP" type="warn" />.

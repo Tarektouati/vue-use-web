@@ -73,6 +73,7 @@ module.exports = {
         'preferred-languages',
         'script',
         'scroll-position',
+        'websocket',
         'window-size'
       ],
       '/examples/': []
