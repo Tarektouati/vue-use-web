@@ -1,6 +1,6 @@
 {
   "name": "vue-use-web",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Web APIs implemented as Vue.js composition functions",
   "module": "dist/vue-use-web.esm.js",
   "unpkg": "dist/vue-use-web.js",
