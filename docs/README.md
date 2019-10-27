@@ -53,6 +53,7 @@ npm install @vue/composition-api vue-use-web
 - [Preferred Color Scheme](./guide/preferred-color-scheme.md).
 - [Preferred Languages](./guide/preferred-languages.md).
 - [Script](./guide/script.md).
+- [WebSocket](./guide/websocket.md).
 - [Window Scroll Position](./guide/scroll-position.md).
 - [Window Size](./guide/window-size.md).
 - Bluetooth <Badge text="WIP" type="warn" />.
