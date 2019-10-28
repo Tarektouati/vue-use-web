@@ -2,31 +2,30 @@ import { ref, onMounted, onUnmounted, Ref } from '@vue/composition-api';
 
 export function useWorker(url: string) {
   let message: Ref<any> = ref(null); 
-  let ww: Worker;
+  let worker: Worker;
   
-  const post: typeof ww.postMessage = function post(val: any) {
-    if (!ww) return;
+  const post: typeof worker.postMessage = function post(val: any) {
+    if (!worker) return;
 
-    ww.postMessage(val);
+    worker.postMessage(val);
   };
 
-  const terminate: typeof ww.terminate = function terminate() {
-    if (!ww) return;
+  const terminate: typeof worker.terminate = function terminate() {
+    if (!worker) return;
 
-    ww.terminate();
+    worker.terminate();
   };
 
   onMounted(() => {
-    ww = new Worker(url);
+    worker = new Worker(url);
 
-    ww.onmessage = (e: MessageEvent) => {
+    worker.onmessage = (e: MessageEvent) => {
       message.value = e.data;
-      ww.postMessage(message);
     };
   });
 
   onUnmounted(() => {
-    ww.terminate();
+    worker.terminate();
   });
 
   return {
