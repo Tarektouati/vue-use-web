@@ -1,7 +1,7 @@
 import { ref, onMounted, onUnmounted, Ref } from '@vue/composition-api';
 
 export function useWorker(url: string) {
-  let message: Ref<any> = ref(null); 
+  let data: Ref<any> = ref(null); 
   let worker: Worker;
   
   const post: typeof worker.postMessage = function post(val: any) {
@@ -20,7 +20,7 @@ export function useWorker(url: string) {
     worker = new Worker(url);
 
     worker.onmessage = (e: MessageEvent) => {
-      message.value = e.data;
+      data.value = e.data;
     };
   });
 
@@ -29,7 +29,7 @@ export function useWorker(url: string) {
   });
 
   return {
-    message,
+    data,
     post,
     terminate
   };
