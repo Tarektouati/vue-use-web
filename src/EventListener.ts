@@ -1,16 +1,20 @@
-import { onMounted, onBeforeUnmount } from '@vue/composition-api';
+import { onMounted, onBeforeUnmount, Ref, isRef } from '@vue/composition-api';
 
 export function useEventListener<T extends EventTarget>(
-  target: T,
+  target: T | Ref<T>,
   type: string,
   handler: EventListener,
   options?: AddEventListenerOptions
 ) {
   onMounted(() => {
-    target.addEventListener(type, handler, options);
+    const t = isRef(target) ? target.value : target;
+
+    t.addEventListener(type, handler, options);
   });
 
   onBeforeUnmount(() => {
-    target.removeEventListener(type, handler, options);
+    const t = isRef(target) ? target.value : target;
+
+    t.removeEventListener(type, handler, options);
   });
 }
