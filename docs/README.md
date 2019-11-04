@@ -42,7 +42,8 @@ npm install @vue/composition-api vue-use-web
 - [Device Light](./guide/device-light.md).
 - [Device Motion](./guide/device-motion.md).
 - [Device Orientation](./guide/device-orientation.md).
-- [Document Visibility](./document-visibility.md)
+- [Document Visibility](./guide/document-visibility.md).
+- [Event Listener](./guide/event-listener).
 - [Fetch API](./guide/fetch.md).
 - [Full-screen](./guide/fullscreen.md).
 - [Geo-location API](./guide/geolocation.md).

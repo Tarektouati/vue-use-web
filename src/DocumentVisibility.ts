@@ -1,5 +1,6 @@
 import { ref, Ref } from '@vue/composition-api';
-import { hasWindow, useDocumentEventListener } from './utils';
+import { useEventListener } from './EventListener';
+import { hasWindow } from './utils';
 
 /**
  * Tracks visibility of the page.
@@ -18,7 +19,7 @@ export function useDocumentVisibility(): Ref<boolean> {
 
   const isVisible: Ref<boolean> = ref(hasWindow ? documentIsVisible() : true);
 
-  useDocumentEventListener('visibilitychange', () => {
+  useEventListener(document, 'visibilitychange', () => {
     isVisible.value = documentIsVisible();
   });
 

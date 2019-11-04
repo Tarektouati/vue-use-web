@@ -1,4 +1,4 @@
-# Media Query
+# Document Visibility
 
 > The [`Document.visibilityState`](https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilityState) read-only property returns the visibility of the document, that is in which context this element is now visible. It is useful to know if the document is in the background or an invisible tab, or only loaded for pre-rendering. Possible values are:
 
@@ -25,16 +25,15 @@ const pageIsVisible = useDocumentVisibility();
 
 <script>
 import { useMedia } from 'vue-use-web';
-import { watch } from '@vue/composition-api'
-
+import { watch } from '@vue/composition-api';
 
 export default {
   setup() {
-    const isVisible = useDocumentVisibility()
+    const isVisible = useDocumentVisibility();
 
-    watch(() => console.log(isVisible.value))
+    watch(() => console.log(isVisible.value));
 
-    return { isVisible }
+    return { isVisible };
   }
 };
 </script>
