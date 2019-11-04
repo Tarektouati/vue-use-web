@@ -49,6 +49,7 @@ Each composition function is designed to degrade gracefully so you can safely us
 - [WebSocket](https://logaretm.github.io/vue-use-web/guide/websocket.html).
 - [Window Scroll Position](https://logaretm.github.io/vue-use-web/guide/scroll-position.html).
 - [Window Size](https://logaretm.github.io/vue-use-web/guide/window-size.html).
+- [Worker](https://logaretm.github.io/vue-use-web/guide/worker.html).
 - Bluetooth (WIP).
 - Notification (WIP).
 - Share (WIP).

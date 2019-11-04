@@ -57,6 +57,7 @@ npm install @vue/composition-api vue-use-web
 - [WebSocket](./guide/websocket.md).
 - [Window Scroll Position](./guide/scroll-position.md).
 - [Window Size](./guide/window-size.md).
+- [Worker](./guide/worker.md).
 - Bluetooth <Badge text="WIP" type="warn" />.
 - Notification <Badge text="WIP" type="warn" />.
 - Share <Badge text="WIP" type="warn" />.

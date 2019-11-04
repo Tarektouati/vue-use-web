@@ -41,6 +41,7 @@ These are the currently implemented Web APIs and the planned ones.
 - [WebSocket](./guide/websocket.md).
 - [Window Scroll Position](./scroll-position.md).
 - [Window Size](./window-size.md).
+- [Worker](./worker.md).
 - Bluetooth <Badge text="WIP" type="warn" />.
 - Notification <Badge text="WIP" type="warn" />.
 - Share <Badge text="WIP" type="warn" />.
