@@ -83,7 +83,7 @@ module.exports = {
         label: 'English',
         selectText: 'Languages',
         editLinkText: 'Help us improve this page!',
-        nav: [{ text: 'Guide', link: '/guide/' }, { text: 'Examples', link: '/examples/' }]
+        nav: [{ text: 'Guide', link: '/guide/' }]
       }
     }
   }
