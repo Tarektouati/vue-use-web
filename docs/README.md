@@ -47,8 +47,9 @@ npm install @vue/composition-api vue-use-web
 - [Fetch API](./guide/fetch.md).
 - [Full-screen](./guide/fullscreen.md).
 - [Geo-location API](./guide/geolocation.md).
-- [Local-storage API](./guide/local-storage.md)
+- [Hardware Concurrency](./guide/hardware-concurrency.md).
 - [Intersection Observer](./guide/intersection-observer.md).
+- [Local-storage API](./guide/local-storage.md)
 - [Media Query](./guide/media-query.md)
 - [Mouse Position](./guide/mouse-position.md)
 - [Network Information API](./guide/network.md).
