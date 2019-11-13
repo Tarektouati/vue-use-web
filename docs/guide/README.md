@@ -35,6 +35,7 @@ These are the currently implemented Web APIs and the planned ones.
 - [Intersection Observer](./intersection-observer.md).
 - [Local storage API](./local-storage.md).
 - [Media Query](./media-query.md).
+- [Memory Status](./guide/memory-status.md)
 - [Mouse Position](./mouse-position.md).
 - [Network Information API](./network.md).
 - [Preferred Color Scheme](./preferred-color-scheme.md).

@@ -4,9 +4,9 @@ import { hasWindow } from './utils';
 export function useMemoryStatus() {
   const deviceMemory = ref(0);
   const unsupported = ref(false);
-  const totalJSHeapSize = ref(null);
-  const usedJSHeapSize = ref(null);
-  const jsHeapSizeLimit = ref(null);
+  const totalJSHeapSize = ref(undefined);
+  const usedJSHeapSize = ref(undefined);
+  const jsHeapSizeLimit = ref(undefined);
 
   function resolveMemory() {
     if (!hasWindow) {
