@@ -9,7 +9,7 @@ The `useDeviceOrientation` function exposes the following reactive state:
 ```js
 import { useDeviceOrientation } from 'vue-use-web';
 
-const { acceleration, accelerationIncludingGravity, rotationRate, interval } = useDeviceOrientation();
+const { isAbsolute, alpha, beta, gamma } = useDeviceOrientation();
 ```
 
 | State      | Type     | Description                                                                                                                |
