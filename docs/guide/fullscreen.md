@@ -7,12 +7,12 @@
 The `useFullscreen` function exposes the following reactive state:
 
 ```js
-import { useFullSscreen } from 'vue-use-web';
+import { useFullscreen } from 'vue-use-web';
 import { ref } from '@vue/composition-api';
 
 const elem = ref(null);
 
-const { isFullscreen } = useFullSscreen(elem);
+const { isFullscreen } = useFullscreen(elem);
 ```
 
 | State        | Type      | Description                                      |
