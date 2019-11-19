@@ -42,11 +42,11 @@ const { observe, unobserve } = useIntersectionObserver(elem);
 
 ## Config
 
-`useIntersectionRatio` function takes a required parameter that is a ref to the observed element and [optional config](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver#Parameters).
+`useIntersectionObserver` function takes a required parameter that is a ref to the observed element and [optional config](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver#Parameters).
 
 ```js
 import { ref } from '@vue/composition-api';
-import { useIntersectionRatio } from 'vue-use-web';
+import { useIntersectionObserver } from 'vue-use-web';
 const elem = ref(null);
 
 const { isIntersecting } = useIntersectionObserver(elem, {
