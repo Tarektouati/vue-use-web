@@ -72,8 +72,8 @@ module.exports = {
         'preferred-color-scheme',
         'preferred-languages',
         'script',
-        'scroll-position',
         'websocket',
+        'scroll-position',
         'window-size'
       ],
       '/examples/': []
