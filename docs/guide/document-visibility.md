@@ -24,7 +24,7 @@ const pageIsVisible = useDocumentVisibility();
 </template>
 
 <script>
-import { useMedia } from 'vue-use-web';
+import { useDocumentVisibility } from 'vue-use-web';
 import { watch } from '@vue/composition-api';
 
 export default {
