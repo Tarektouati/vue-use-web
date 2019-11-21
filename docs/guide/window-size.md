@@ -18,7 +18,7 @@ const { width, height } = useWindowSize();
 | height | `Number` | The client window height in pixels. |
 
 :::tip Note!
-By default the updates the state are throttled by 100ms to keep things snappy but you can configure that.
+By default the updates to the state are throttled by 100ms to keep things snappy but you can configure that.
 :::
 
 ## Config
