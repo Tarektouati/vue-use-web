@@ -92,7 +92,7 @@ module.exports = {
         label: 'English',
         selectText: 'Languages',
         editLinkText: 'Help us improve this page!',
-        nav: [{ text: 'Functions', link: '/functions' }]
+        nav: [{ text: 'Functions', link: '/functions/' }]
       }
     }
   }
