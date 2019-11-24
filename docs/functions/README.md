@@ -17,7 +17,7 @@ I initially was choosing to expose this as a [Stateful functional components](ht
 - Maintains similarities to the original APIs as close as possible.
 - Written in TypeScript.
 
-## Web APIs
+## Available Functions
 
 These are the currently implemented Web APIs and the planned ones.
 

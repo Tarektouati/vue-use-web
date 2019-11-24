@@ -4,7 +4,7 @@ lang: en-US
 home: true
 # heroImage:
 actionText: Get Started →
-actionLink: ./guide/
+actionLink: ./functions/
 features:
   - title: Reactive
     details: All the APIs have been repurposed to be reactive so you can use them directly in your components.
@@ -37,30 +37,30 @@ npm install @vue/composition-api vue-use-web
 
 ## Web APIs
 
-- [Battery Status API](./guide/battery.md).
-- [Clipboard API](./guide/clipboard.md).
-- [Device Light](./guide/device-light.md).
-- [Device Motion](./guide/device-motion.md).
-- [Device Orientation](./guide/device-orientation.md).
-- [Document Visibility](./guide/document-visibility.md).
-- [Event Listener](./guide/event-listener).
-- [Fetch API](./guide/fetch.md).
-- [Full-screen](./guide/fullscreen.md).
-- [Geo-location API](./guide/geolocation.md).
-- [Hardware Concurrency](./guide/hardware-concurrency.md).
-- [Intersection Observer](./guide/intersection-observer.md).
-- [Local-storage API](./guide/local-storage.md)
-- [Media Query](./guide/media-query.md)
-- [Memory Status](./guide/memory-status.md).
-- [Mouse Position](./guide/mouse-position.md)
-- [Network Information API](./guide/network.md).
-- [Preferred Color Scheme](./guide/preferred-color-scheme.md).
-- [Preferred Languages](./guide/preferred-languages.md).
-- [Script](./guide/script.md).
-- [WebSocket](./guide/websocket.md).
-- [Window Scroll Position](./guide/scroll-position.md).
-- [Window Size](./guide/window-size.md).
-- [Worker](./guide/worker.md).
+- [Battery Status API](./functions/battery.md).
+- [Clipboard API](./functions/clipboard.md).
+- [Device Light](./functions/device-light.md).
+- [Device Motion](./functions/device-motion.md).
+- [Device Orientation](./functions/device-orientation.md).
+- [Document Visibility](./functions/document-visibility.md).
+- [Event Listener](./functions/event-listener).
+- [Fetch API](./functions/fetch.md).
+- [Full-screen](./functions/fullscreen.md).
+- [Geo-location API](./functions/geolocation.md).
+- [Hardware Concurrency](./functions/hardware-concurrency.md).
+- [Intersection Observer](./functions/intersection-observer.md).
+- [Local-storage API](./functions/local-storage.md)
+- [Media Query](./functions/media-query.md)
+- [Memory Status](./functions/memory-status.md).
+- [Mouse Position](./functions/mouse-position.md)
+- [Network Information API](./functions/network.md).
+- [Preferred Color Scheme](./functions/preferred-color-scheme.md).
+- [Preferred Languages](./functions/preferred-languages.md).
+- [Script](./functions/script.md).
+- [WebSocket](./functions/websocket.md).
+- [Window Scroll Position](./functions/scroll-position.md).
+- [Window Size](./functions/window-size.md).
+- [Worker](./functions/worker.md).
 - Bluetooth <Badge text="WIP" type="warn" />.
 - Notification <Badge text="WIP" type="warn" />.
 - Share <Badge text="WIP" type="warn" />.

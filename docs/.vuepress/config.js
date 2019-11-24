@@ -52,38 +52,47 @@ module.exports = {
     docsDir: 'docs',
     editLinks: true,
     sidebarDepth: 2,
-    sidebar: {
-      '/guide/': [
-        '',
-        'battery',
-        'clipboard',
-        'device-light',
-        'device-motion',
-        'device-orientation',
-        'document-visibility',
-        'fetch',
-        'fullscreen',
-        'geolocation',
-        'intersection-observer',
-        'local-storage',
-        'media-query',
-        'mouse-position',
-        'network',
-        'preferred-color-scheme',
-        'preferred-languages',
-        'script',
-        'websocket',
-        'scroll-position',
-        'window-size'
-      ],
-      '/examples/': []
-    },
+    sidebar: [
+      {
+        title: 'Composition Functions',
+        collapsable: false,
+        children: [
+          '/functions/battery',
+          '/functions/clipboard',
+          '/functions/device-light',
+          '/functions/device-motion',
+          '/functions/device-orientation',
+          '/functions/document-visibility',
+          '/functions/fetch',
+          '/functions/fullscreen',
+          '/functions/geolocation',
+          '/functions/hardware-concurrency',
+          '/functions/intersection-observer',
+          '/functions/local-storage',
+          '/functions/media-query',
+          '/functions/memory-status',
+          '/functions/mouse-position',
+          '/functions/network',
+          '/functions/preferred-color-scheme',
+          '/functions/preferred-languages',
+          '/functions/script',
+          '/functions/websocket',
+          '/functions/scroll-position',
+          '/functions/window-size'
+        ]
+      },
+      {
+        title: 'Cook Book (WIP)',
+        collapsable: false,
+        children: []
+      }
+    ],
     locales: {
       '/': {
         label: 'English',
         selectText: 'Languages',
         editLinkText: 'Help us improve this page!',
-        nav: [{ text: 'Guide', link: '/guide/' }]
+        nav: [{ text: 'Functions', link: '/functions' }]
       }
     }
   }
