@@ -1,29 +1,16 @@
-import { onMounted, reactive, toRefs, onUnmounted } from '@vue/composition-api';
-
-function initState() {
-  const data: {
-    isAbsolute: boolean;
-    alpha: number | null;
-    beta: number | null;
-    gamma: number | null;
-  } = {
-    isAbsolute: false,
-    gamma: 0,
-    alpha: 0,
-    beta: 0
-  };
-
-  return reactive(data);
-}
+import { onMounted, onUnmounted, ref, Ref } from '@vue/composition-api';
 
 export function useDeviceOrientation() {
-  const state = initState();
+  const isAbsolute = ref(false);
+  const alpha: Ref<number | null> = ref(0);
+  const beta: Ref<number | null> = ref(0);
+  const gamma: Ref<number | null> = ref(0);
 
   function handler(event: DeviceOrientationEvent) {
-    state.isAbsolute = event.absolute;
-    state.alpha = event.alpha;
-    state.beta = event.beta;
-    state.gamma = event.gamma;
+    isAbsolute.value = event.absolute;
+    alpha.value = event.alpha;
+    beta.value = event.beta;
+    gamma.value = event.gamma;
   }
 
   onMounted(() => {
@@ -35,6 +22,9 @@ export function useDeviceOrientation() {
   });
 
   return {
-    ...toRefs(state)
+    isAbsolute,
+    alpha,
+    beta,
+    gamma
   };
 }

@@ -1,33 +1,17 @@
-import { reactive, toRefs, onMounted } from '@vue/composition-api';
+import { ref, onMounted, Ref } from '@vue/composition-api';
 
 export function useFetch(url: RequestInfo, options: RequestInit) {
-  const stateDefs: {
-    blob: Blob | null;
-    json: any;
-    text: string;
-    statusText: string;
-    status: number | undefined;
-    isLoading: boolean;
-    headers: Record<string, string>;
-    success: boolean;
-    type: ResponseType | 'unknown';
-    error: boolean;
-    cancelled: boolean;
-  } = {
-    isLoading: false,
-    success: false,
-    error: false,
-    cancelled: false,
-    json: null,
-    blob: null,
-    text: '',
-    type: 'unknown',
-    status: undefined,
-    statusText: '',
-    headers: {}
-  };
-
-  const state = reactive(stateDefs);
+  const blob: Ref<Blob | null> = ref(null);
+  const json: Ref<any> = ref(null);
+  const isLoading = ref(false);
+  const success = ref(false);
+  const error = ref(false);
+  const cancelled = ref(false);
+  const text = ref('');
+  const type: Ref<ResponseType | 'unknown'> = ref('unknown');
+  const status: Ref<number | undefined> = ref(undefined);
+  const statusText = ref('');
+  const headers: Ref<Record<string, string>> = ref({});
 
   let signal: AbortSignal | undefined;
   let controller: AbortController;
@@ -37,57 +21,66 @@ export function useFetch(url: RequestInfo, options: RequestInit) {
   }
 
   function execute() {
-    state.isLoading = true;
+    isLoading.value = true;
 
     return window
       .fetch(url, { signal, ...options })
       .then(res => {
-        state.success = res.ok;
-        state.error = !res.ok;
-        state.isLoading = false;
-        state.statusText = res.statusText;
-        state.status = res.status;
-        state.type = res.type;
-        const headers: Record<string, string> = {};
+        success.value = res.ok;
+        error.value = !res.ok;
+        isLoading.value = false;
+        statusText.value = res.statusText;
+        status.value = res.status;
+        type.value = res.type;
+        const responseHeaders: Record<string, string> = {};
         res.headers.forEach((value, key) => {
-          headers[key] = value;
+          responseHeaders[key] = value;
         });
 
-        state.headers = headers;
+        headers.value = responseHeaders;
 
         return Promise.all([res.clone().text(), res.clone().blob(), res.json()]);
       })
       .then(([text, blob, json]) => {
         // Graceful degradation for cancellation.
-        if (state.cancelled) {
+        if (cancelled.value) {
           return;
         }
 
-        state.text = text;
-        state.blob = blob;
-        state.json = json;
+        text.value = text;
+        blob.value = blob;
+        json.value = json;
       })
       .catch(() => {
-        state.error = true;
-        state.isLoading = false;
+        error.value = true;
+        isLoading.value = false;
       });
   }
 
   onMounted(execute);
 
   function cancel() {
-    if (state.success) {
+    if (success.value) {
       return;
     }
 
-    state.cancelled = true;
+    cancelled.value = true;
     if (controller) {
       controller.abort();
     }
   }
 
   return {
-    ...toRefs(state),
+    blob,
+    json,
+    text,
+    status,
+    statusText,
+    headers,
+    isLoading,
+    cancelled,
+    error,
+    success,
     cancel,
     execute
   };

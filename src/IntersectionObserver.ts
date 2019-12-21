@@ -1,14 +1,12 @@
-import { onMounted, Ref, reactive, toRefs, onUnmounted } from '@vue/composition-api';
+import { onMounted, Ref, ref, onUnmounted } from '@vue/composition-api';
 
 export function useIntersectionObserver(
   target: Ref<HTMLElement>,
   options: IntersectionObserverInit = { root: null, rootMargin: '0px' }
 ) {
-  const state = reactive({
-    intersectionRatio: 0,
-    isIntersecting: false,
-    isFullyInView: false
-  });
+  const intersectionRatio = ref(0);
+  const isIntersecting = ref(false);
+  const isFullyInView = ref(false);
 
   function observe() {
     if (target.value) {
@@ -19,14 +17,14 @@ export function useIntersectionObserver(
   let observer: IntersectionObserver;
   onMounted(() => {
     observer = new IntersectionObserver(([entry]) => {
-      state.intersectionRatio = entry.intersectionRatio;
+      intersectionRatio.value = entry.intersectionRatio;
       if (entry.intersectionRatio > 0) {
-        state.isIntersecting = true;
-        state.isFullyInView = entry.intersectionRatio >= 1;
+        isIntersecting.value = true;
+        isFullyInView.value = entry.intersectionRatio >= 1;
         return;
       }
 
-      state.isIntersecting = false;
+      isIntersecting.value = false;
     }, options);
 
     observe();
@@ -43,7 +41,9 @@ export function useIntersectionObserver(
   onUnmounted(unobserve);
 
   return {
-    ...toRefs(state),
+    intersectionRatio,
+    isIntersecting,
+    isFullyInView,
     observe,
     unobserve
   };

@@ -1,4 +1,4 @@
-import { onMounted, reactive, toRefs } from '@vue/composition-api';
+import { onMounted, ref } from '@vue/composition-api';
 
 interface ScriptOptions {
   src: string;
@@ -8,11 +8,9 @@ interface ScriptOptions {
 }
 
 export function useScript(opts: ScriptOptions) {
-  const state = reactive({
-    isLoading: false,
-    error: false,
-    success: false
-  });
+  const isLoading = ref(false);
+  const error = ref(false);
+  const success = ref(false);
 
   const promise = new Promise((resolve, reject) => {
     onMounted(() => {
@@ -21,16 +19,16 @@ export function useScript(opts: ScriptOptions) {
       // script.async = opts.defer || true;
       // script.noModule = !opts.module || false;
       script.onload = function() {
-        state.isLoading = false;
-        state.success = true;
-        state.error = false;
+        isLoading.value = false;
+        success.value = true;
+        error.value = false;
         resolve();
       };
 
       script.onerror = function(err) {
-        state.isLoading = false;
-        state.success = false;
-        state.error = true;
+        isLoading.value = false;
+        success.value = false;
+        error.value = true;
         reject(err);
       };
 
@@ -40,7 +38,9 @@ export function useScript(opts: ScriptOptions) {
   });
 
   return {
-    ...toRefs(state),
+    isLoading,
+    error,
+    success,
     toPromise: () => promise
   };
 }

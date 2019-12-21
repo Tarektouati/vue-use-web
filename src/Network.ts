@@ -1,12 +1,12 @@
-import { reactive, onMounted, toRefs, onUnmounted } from '@vue/composition-api';
+import { onMounted, onUnmounted, ref, Ref } from '@vue/composition-api';
 
 type NetworkType = 'bluetooth' | 'cellular' | 'ethernet' | 'none' | 'wifi' | 'wimax' | 'other' | 'unknown';
 
-type NetworkEffectiveType = 'slow-2g' | '2g' | '3g' | '4g';
+type NetworkEffectiveType = 'slow-2g' | '2g' | '3g' | '4g' | undefined;
 
 interface NetworkState {
   isOnline: boolean;
-  offlineAt: Date | undefined;
+  offlineAt: number | undefined;
   downlink?: number;
   downlinkMax?: number;
   effectiveType?: NetworkEffectiveType;
@@ -14,45 +14,37 @@ interface NetworkState {
   type?: NetworkType;
 }
 
-function makeState() {
-  const data: NetworkState = {
-    isOnline: true,
-    offlineAt: undefined,
-    downlink: undefined,
-    downlinkMax: undefined,
-    effectiveType: undefined,
-    saveData: undefined,
-    type: undefined
-  };
-
-  return reactive(data);
-}
-
 export function useNetwork() {
-  const state = makeState();
+  const isOnline = ref(true);
+  const saveData = ref(false);
+  const offlineAt: Ref<number | undefined> = ref(undefined);
+  const downlink: Ref<number | undefined> = ref(undefined);
+  const downlinkMax: Ref<number | undefined> = ref(undefined);
+  const effectiveType: Ref<NetworkEffectiveType> = ref(undefined);
+  const type: Ref<NetworkType> = ref('unknown');
 
   function updateNetworkInformation() {
-    state.isOnline = window.navigator.onLine;
-    state.offlineAt = state.isOnline ? undefined : new Date();
+    isOnline.value = window.navigator.onLine;
+    offlineAt.value = isOnline.value ? undefined : Date.now();
     // skip for non supported browsers.
     if (!('connection' in window.navigator)) {
       return;
     }
 
-    state.downlink = (window.navigator as any).connection.downlink;
-    state.downlinkMax = (window.navigator as any).connection.downlinkMax;
-    state.effectiveType = (window.navigator as any).connection.effectiveType;
-    state.saveData = (window.navigator as any).connection.saveData;
-    state.type = (window.navigator as any).connection.type;
+    downlink.value = (window.navigator as any).connection.downlink;
+    downlinkMax.value = (window.navigator as any).connection.downlinkMax;
+    effectiveType.value = (window.navigator as any).connection.effectiveType;
+    saveData.value = (window.navigator as any).connection.saveData;
+    type.value = (window.navigator as any).connection.type;
   }
 
   const onOffline = () => {
-    state.isOnline = false;
-    state.offlineAt = new Date();
+    isOnline.value = false;
+    offlineAt.value = Date.now();
   };
 
   const onOnline = () => {
-    state.isOnline = true;
+    isOnline.value = true;
   };
 
   onMounted(() => {
@@ -72,5 +64,13 @@ export function useNetwork() {
     }
   });
 
-  return { ...toRefs(state) };
+  return {
+    isOnline,
+    saveData,
+    offlineAt,
+    downlink,
+    downlinkMax,
+    effectiveType,
+    type
+  };
 }

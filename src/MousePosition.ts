@@ -1,14 +1,12 @@
-import { reactive, toRefs, onMounted, onUnmounted } from '@vue/composition-api';
+import { ref, onMounted, onUnmounted } from '@vue/composition-api';
 
 export function useMousePosition() {
-  const state = reactive({
-    x: 0,
-    y: 0
-  });
+  const x = ref(0);
+  const y = ref(0);
 
   function handler(e: MouseEvent) {
-    state.x = e.clientX;
-    state.y = e.clientY;
+    x.value = e.clientX;
+    x.value = e.clientY;
   }
 
   onMounted(() => {
@@ -20,6 +18,7 @@ export function useMousePosition() {
   });
 
   return {
-    ...toRefs(state)
+    x,
+    y
   };
 }

@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted, reactive, toRefs, onBeforeMount } from '@vue/composition-api';
+import { onMounted, onUnmounted, ref, onBeforeMount } from '@vue/composition-api';
 import { throttle } from './utils';
 
 interface WindowSizeOptions {
@@ -6,11 +6,12 @@ interface WindowSizeOptions {
 }
 
 export function useWindowSize(options: WindowSizeOptions = { throttleMs: 100 }) {
-  const state = reactive({ width: 0, height: 0 });
+  const width = ref(0);
+  const height = ref(0);
 
   function setSize() {
-    state.width = window.innerWidth;
-    state.height = window.innerHeight;
+    width.value = window.innerWidth;
+    height.value = window.innerHeight;
   }
 
   const onScroll = throttle(options.throttleMs, setSize);
@@ -27,6 +28,7 @@ export function useWindowSize(options: WindowSizeOptions = { throttleMs: 100 }) 
   });
 
   return {
-    ...toRefs(state)
+    height,
+    width
   };
 }

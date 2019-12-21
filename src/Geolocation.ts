@@ -1,30 +1,22 @@
-import { reactive, toRefs, onMounted, onUnmounted } from '@vue/composition-api';
+import { ref, onMounted, onUnmounted, Ref } from '@vue/composition-api';
 
 export function useGeolocation(options: PositionOptions) {
-  const data: {
-    error: string;
-    coords: Position['coords'];
-    locatedAt: Date | undefined;
-  } = {
-    coords: {
-      accuracy: 0,
-      latitude: 0,
-      longitude: 0,
-      altitude: null,
-      altitudeAccuracy: null,
-      heading: null,
-      speed: null
-    },
-    locatedAt: undefined,
-    error: ''
-  };
-
-  const state = reactive(data);
+  const locatedAt: Ref<number | null> = ref(null);
+  const error = ref('');
+  const coords: Ref<Position['coords']> = ref({
+    accuracy: 0,
+    latitude: 0,
+    longitude: 0,
+    altitude: null,
+    altitudeAccuracy: null,
+    heading: null,
+    speed: null
+  });
 
   function updatePosition(position: Position) {
-    state.locatedAt = new Date(position.timestamp);
-    state.coords = position.coords;
-    state.error = '';
+    locatedAt.value = position.timestamp;
+    coords.value = position.coords;
+    error.value = '';
   }
 
   let watcher: number;
@@ -40,5 +32,9 @@ export function useGeolocation(options: PositionOptions) {
     }
   });
 
-  return { ...toRefs(state) };
+  return {
+    coords,
+    locatedAt,
+    error
+  };
 }
