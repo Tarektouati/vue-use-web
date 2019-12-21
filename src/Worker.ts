@@ -1,7 +1,7 @@
 import { ref, onMounted, onUnmounted, Ref } from '@vue/composition-api';
 
 export function useWorker(url: string) {
-  let data: Ref<any> = ref(null);
+  const data: Ref<any> = ref(null);
   let worker: Worker;
 
   const post: typeof worker.postMessage = function post(val: any) {

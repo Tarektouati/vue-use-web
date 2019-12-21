@@ -1,5 +1,3 @@
-import { onMounted, onUnmounted } from '@vue/composition-api';
-
 export function throttle<T extends (...args: any[]) => void>(wait: number, fn: T): T {
   if (wait === 0) {
     return fn;

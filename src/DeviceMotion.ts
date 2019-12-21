@@ -9,9 +9,10 @@ function initState() {
     z: null
   });
 
-  const data: Writeable<
-    Pick<DeviceMotionEvent, 'acceleration' | 'accelerationIncludingGravity' | 'interval' | 'rotationRate'>
-  > = {
+  const data: Writeable<Pick<
+    DeviceMotionEvent,
+    'acceleration' | 'accelerationIncludingGravity' | 'interval' | 'rotationRate'
+  >> = {
     acceleration: defaults(),
     accelerationIncludingGravity: defaults(),
     rotationRate: {
@@ -26,7 +27,7 @@ function initState() {
 }
 
 interface DeviceMotionOptions {
-  throttleMs: 10
+  throttleMs: 10;
 }
 
 export function useDeviceMotion(options: DeviceMotionOptions = { throttleMs: 10 }) {
