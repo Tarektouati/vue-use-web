@@ -1,4 +1,4 @@
-import { reactive, onMounted, toRefs, onUnmounted } from '@vue/composition-api';
+import { ref, onMounted, onUnmounted } from '@vue/composition-api';
 
 interface BatteryManager extends EventTarget {
   charging: boolean;
@@ -14,18 +14,16 @@ type NavigatorWithBattery = Navigator & {
 const events = ['chargingchange', 'chargingtimechange', 'dischargingtimechange', 'levelchange'];
 
 export function useBattery() {
-  const state = reactive({
-    isCharging: false,
-    chargingTime: 0,
-    dischargingTime: 0,
-    level: 1
-  });
+  const isCharging = ref(false);
+  const chargingTime = ref(0);
+  const dischargingTime = ref(0);
+  const level = ref(1);
 
   function updateBatteryInfo(this: BatteryManager) {
-    state.isCharging = this.charging;
-    state.chargingTime = this.chargingTime || 0;
-    state.dischargingTime = this.dischargingTime || 0;
-    state.level = this.level;
+    isCharging.value = this.charging;
+    chargingTime.value = this.chargingTime || 0;
+    dischargingTime.value = this.dischargingTime || 0;
+    level.value = this.level;
   }
 
   onMounted(() => {
@@ -54,6 +52,9 @@ export function useBattery() {
   });
 
   return {
-    ...toRefs(state)
+    isCharging,
+    chargingTime,
+    dischargingTime,
+    level
   };
 }
