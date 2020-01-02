@@ -30,28 +30,28 @@ npm install @vue/composition-api vue-use-web
 
 Each composition function is designed to degrade gracefully so you can safely use them, but you should use these as a progressive enhancements for your apps. Check browsers compatibilities for each API.
 
-- [Battery Status API](https://logaretm.github.io/vue-use-web/guide/battery.html).
-- [Clipboard API](https://logaretm.github.io/vue-use-web/guide/clipboard.html).
-- [Device Light](https://logaretm.github.io/vue-use-web/guide/device-light.html).
-- [Device Motion](https://logaretm.github.io/vue-use-web/guide/device-motion.html).
-- [Device Orientation](https://logaretm.github.io/vue-use-web/guide/device-orientation.html).
-- [Event Listener](https://logaretm.github.io/vue-use-web/guide/event-listener.html).
-- [Fetch API](https://logaretm.github.io/vue-use-web/guide/fetch.html).
-- [Full-screen](https://logaretm.github.io/vue-use-web/guide/fullscreen.html).
-- [Geo-location API](https://logaretm.github.io/vue-use-web/guide/geolocation.html).
-- [Hardware Concurrency](https://logaretm.github.io/vue-use-web/guide/hardware-concurrency.html)
-- [Intersection Observer](https://logaretm.github.io/vue-use-web/guide/intersection-observer.html).
-- [Localstorage API](https://logaretm.github.io/vue-use-web/guide/local-storage.html)
-- [Media Query](https://logaretm.github.io/vue-use-web/guide/media-query.html)
-- [Mouse Position](https://logaretm.github.io/vue-use-web/guide/mouse-position.html)
-- [Network Information API](https://logaretm.github.io/vue-use-web/guide/network.html).
-- [Preferred Color Scheme](https://logaretm.github.io/vue-use-web/guide/preferred-color-scheme.html).
-- [Preferred Languages](https://logaretm.github.io/vue-use-web/guide/preferred-languages.html).
-- [Script](https://logaretm.github.io/vue-use-web/guide/script.html).
-- [WebSocket](https://logaretm.github.io/vue-use-web/guide/websocket.html).
-- [Window Scroll Position](https://logaretm.github.io/vue-use-web/guide/scroll-position.html).
-- [Window Size](https://logaretm.github.io/vue-use-web/guide/window-size.html).
-- [Worker](https://logaretm.github.io/vue-use-web/guide/worker.html).
+- [Battery Status API](https://logaretm.github.io/vue-use-web/functions/battery.html).
+- [Clipboard API](https://logaretm.github.io/vue-use-web/functions/clipboard.html).
+- [Device Light](https://logaretm.github.io/vue-use-web/functions/device-light.html).
+- [Device Motion](https://logaretm.github.io/vue-use-web/functions/device-motion.html).
+- [Device Orientation](https://logaretm.github.io/vue-use-web/functions/device-orientation.html).
+- [Event Listener](https://logaretm.github.io/vue-use-web/functions/event-listener.html).
+- [Fetch API](https://logaretm.github.io/vue-use-web/functions/fetch.html).
+- [Full-screen](https://logaretm.github.io/vue-use-web/functions/fullscreen.html).
+- [Geo-location API](https://logaretm.github.io/vue-use-web/functions/geolocation.html).
+- [Hardware Concurrency](https://logaretm.github.io/vue-use-web/functions/hardware-concurrency.html)
+- [Intersection Observer](https://logaretm.github.io/vue-use-web/functions/intersection-observer.html).
+- [Localstorage API](https://logaretm.github.io/vue-use-web/functions/local-storage.html)
+- [Media Query](https://logaretm.github.io/vue-use-web/functions/media-query.html)
+- [Mouse Position](https://logaretm.github.io/vue-use-web/functions/mouse-position.html)
+- [Network Information API](https://logaretm.github.io/vue-use-web/functions/network.html).
+- [Preferred Color Scheme](https://logaretm.github.io/vue-use-web/functions/preferred-color-scheme.html).
+- [Preferred Languages](https://logaretm.github.io/vue-use-web/functions/preferred-languages.html).
+- [Script](https://logaretm.github.io/vue-use-web/functions/script.html).
+- [WebSocket](https://logaretm.github.io/vue-use-web/functions/websocket.html).
+- [Window Scroll Position](https://logaretm.github.io/vue-use-web/functions/scroll-position.html).
+- [Window Size](https://logaretm.github.io/vue-use-web/functions/window-size.html).
+- [Worker](https://logaretm.github.io/vue-use-web/functions/worker.html).
 - Bluetooth (WIP).
 - Notification (WIP).
 - Share (WIP).
