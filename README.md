@@ -1,5 +1,15 @@
 # vue-use-web
 
+<p align="center">
+
+![Codacy grade](https://img.shields.io/codacy/grade/887df16ab5c6455c8b14aba6133220ab?style=flat-square)
+![npm](https://img.shields.io/npm/v/vue-use-web?style=flat-square)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/vue-use-web?style=flat-square)
+![npm](https://img.shields.io/npm/dm/vue-use-web?style=flat-square)
+[![GitHub license](https://img.shields.io/github/license/logaretm/vue-use-web?style=flat-square)](https://github.com/logaretm/vue-use-web/blob/master/LICENSE)
+
+</p>
+
 Web APIs implemented as Vue.js composition functions.
 
 This is a collection of [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) exposed as Vue.js composition hooks that's upcoming in Vue 3.0
