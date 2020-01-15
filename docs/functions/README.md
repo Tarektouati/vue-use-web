@@ -12,7 +12,7 @@ I initially was choosing to expose this as a [Stateful functional components](ht
 
 ## Features
 
-- Reactive Web APIs APIs that is compatible with Vue.js.
+- Reactive Web APIs that are compatible with Vue.js.
 - Graceful degradation for old browsers and denied permissions.
 - Maintains similarities to the original APIs as close as possible.
 - Written in TypeScript.
