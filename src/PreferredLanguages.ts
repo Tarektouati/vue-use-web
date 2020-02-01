@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted, ref } from '@vue/composition-api';
+import { onMounted, onUnmounted, ref } from 'vue';
 
 export function usePreferredLanguages() {
   const value = ref(navigator.languages);

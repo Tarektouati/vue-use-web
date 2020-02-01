@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted, ref, Ref } from '@vue/composition-api';
+import { onMounted, onUnmounted, ref, Ref } from 'vue';
 
 export function useDeviceLight() {
   const value: Ref<number | null> = ref(null);

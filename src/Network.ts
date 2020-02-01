@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted, ref, Ref } from '@vue/composition-api';
+import { onMounted, onUnmounted, ref, Ref } from 'vue';
 
 type NetworkType = 'bluetooth' | 'cellular' | 'ethernet' | 'none' | 'wifi' | 'wimax' | 'other' | 'unknown';
 

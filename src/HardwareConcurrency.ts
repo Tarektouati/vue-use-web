@@ -1,4 +1,4 @@
-import { ref, onMounted } from '@vue/composition-api';
+import { ref, onMounted } from 'vue';
 import { hasWindow } from './utils';
 
 export function useHardwareConcurrency() {

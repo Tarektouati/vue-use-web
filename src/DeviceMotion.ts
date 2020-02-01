@@ -1,4 +1,4 @@
-import { onMounted, ref, onUnmounted, Ref } from '@vue/composition-api';
+import { onMounted, ref, onUnmounted, Ref } from 'vue';
 import { throttle } from './utils';
 
 interface DeviceMotionOptions {

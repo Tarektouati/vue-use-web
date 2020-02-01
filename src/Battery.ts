@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted } from '@vue/composition-api';
+import { ref, onMounted, onUnmounted, readonly } from 'vue';
 
 interface BatteryManager extends EventTarget {
   charging: boolean;
@@ -52,9 +52,9 @@ export function useBattery() {
   });
 
   return {
-    isCharging,
-    chargingTime,
-    dischargingTime,
-    level
+    isCharging: readonly(isCharging),
+    chargingTime: readonly(chargingTime),
+    dischargingTime: readonly(dischargingTime),
+    level: readonly(level)
   };
 }

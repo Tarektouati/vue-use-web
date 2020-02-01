@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted, Ref } from '@vue/composition-api';
+import { ref, onMounted, onUnmounted, Ref } from 'vue';
 
 export function useGeolocation(options: PositionOptions) {
   const locatedAt: Ref<number | null> = ref(null);

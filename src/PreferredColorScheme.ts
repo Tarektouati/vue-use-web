@@ -1,4 +1,4 @@
-import { computed, Ref } from '@vue/composition-api';
+import { computed, Ref } from 'vue';
 import { useMedia } from './Media';
 
 export function usePreferredColorScheme(): Ref<'dark' | 'light' | 'no-preference'> {

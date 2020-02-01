@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted, Ref } from '@vue/composition-api';
+import { ref, onMounted, onUnmounted, Ref } from 'vue';
 
 export function useWorker(url: string) {
   const data: Ref<any> = ref(null);

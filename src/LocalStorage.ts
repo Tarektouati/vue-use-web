@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted, Ref } from '@vue/composition-api';
+import { ref, onMounted, onUnmounted, Ref } from 'vue';
 
 function parseValue(serializedVal: string) {
   let value = null;

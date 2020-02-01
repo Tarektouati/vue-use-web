@@ -1,7 +1,7 @@
-import { onMounted, Ref, ref, onUnmounted } from '@vue/composition-api';
+import { onMounted, Ref, ref, onUnmounted } from 'vue';
 
 export function useIntersectionObserver(
-  target: Ref<HTMLElement>,
+  target: Ref<HTMLElement | null>,
   options: IntersectionObserverInit = { root: null, rootMargin: '0px' }
 ) {
   const intersectionRatio = ref(0);
@@ -10,7 +10,7 @@ export function useIntersectionObserver(
 
   function observe() {
     if (target.value) {
-      observer.observe(target.value);
+      observer.observe(target.value as HTMLElement);
     }
   }
 
@@ -34,7 +34,7 @@ export function useIntersectionObserver(
     if (!observer) return;
 
     if (target.value) {
-      observer.unobserve(target.value);
+      observer.unobserve(target.value as HTMLElement);
     }
   }
 

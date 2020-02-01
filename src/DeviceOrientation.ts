@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted, ref, Ref } from '@vue/composition-api';
+import { onMounted, onUnmounted, ref, Ref } from 'vue';
 
 export function useDeviceOrientation() {
   const isAbsolute = ref(false);

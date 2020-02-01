@@ -1,4 +1,4 @@
-import { ref, onMounted, Ref } from '@vue/composition-api';
+import { ref, onMounted, Ref } from 'vue';
 
 export function useFetch(url: RequestInfo, options: RequestInit) {
   const blob: Ref<Blob | null> = ref(null);
