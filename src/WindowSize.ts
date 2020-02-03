@@ -14,17 +14,17 @@ export function useWindowSize(options: WindowSizeOptions = { throttleMs: 100 }) 
     height.value = window.innerHeight;
   }
 
-  const onScroll = throttle(options.throttleMs, setSize);
+  const onResize = throttle(options.throttleMs, setSize);
   onBeforeMount(() => {
     setSize();
   });
 
   onMounted(() => {
-    window.addEventListener('resize', onScroll, { passive: true });
+    window.addEventListener('resize', onResize, { passive: true });
   });
 
   onUnmounted(() => {
-    window.removeEventListener('resize', onScroll);
+    window.removeEventListener('resize', onResize);
   });
 
   return {
