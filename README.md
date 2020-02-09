@@ -6,6 +6,7 @@
 ![npm](https://img.shields.io/npm/v/vue-use-web?style=flat-square)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vue-use-web?style=flat-square)
 ![npm](https://img.shields.io/npm/dm/vue-use-web?style=flat-square)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7d4a75f9be634e94a220d062f75a2476)](https://app.codacy.com/manual/Tarektouati/vue-use-web?utm_source=github.com&utm_medium=referral&utm_content=Tarektouati/vue-use-web&utm_campaign=Badge_Grade_Dashboard)
 [![GitHub license](https://img.shields.io/github/license/logaretm/vue-use-web?style=flat-square)](https://github.com/logaretm/vue-use-web/blob/master/LICENSE)
 
 </p>
