@@ -12,7 +12,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "docs:deploy": "./scripts/deploy.sh",
-    "test": "jest --passWithNoTests",
+    "test": "jest",
     "test:cover": "jest --coverage",
     "lint": "eslint '{src, test}/**.{js,jsx,ts,tsx}' --fix",
     "ts:defs": "./scripts/defs.sh",
