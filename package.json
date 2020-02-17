@@ -55,7 +55,7 @@
     "husky": "^3.1.0",
     "jest": "^24.9.0",
     "lint-staged": "^10.0.7",
-    "mkdirp": "^0.5.1",
+    "mkdirp": "^1.0.3",
     "prettier": "^1.19.1",
     "rollup": "^1.27.14",
     "rollup-plugin-commonjs": "^10.1.0",
