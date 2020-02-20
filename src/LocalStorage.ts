@@ -11,7 +11,7 @@ function parseValue(serializedVal: string) {
   return value;
 }
 
-export function useLocalStorage(key: string, def = undefined) {
+export function useLocalStorage(key: string, def?: any) {
   const value: Ref<any> = ref(null);
   const init = () => {
     const serializedVal = localStorage.getItem(key);
