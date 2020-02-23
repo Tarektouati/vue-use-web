@@ -1,13 +1,13 @@
 import { ref, onMounted, onUnmounted } from '@vue/composition-api';
 
-interface BatteryManager extends EventTarget {
+export interface BatteryManager extends EventTarget {
   charging: boolean;
   chargingTime: number;
   dischargingTime: number;
   level: number;
 }
 
-type NavigatorWithBattery = Navigator & {
+export type NavigatorWithBattery = Navigator & {
   getBattery: () => Promise<BatteryManager>;
 };
 
