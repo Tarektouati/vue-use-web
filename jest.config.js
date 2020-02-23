@@ -11,5 +11,10 @@ module.exports = {
   moduleNameMapper: {
     '^vue$': 'vue/dist/vue.common.js',
     '^@/(.*)$': '<rootDir>/src/$1'
+  },
+  globals: {
+    'ts-jest': {
+      diagnostics: false
+    }
   }
 };
