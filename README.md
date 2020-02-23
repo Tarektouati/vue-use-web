@@ -2,6 +2,7 @@
 
 <p align="center">
 
+![Github Actions](https://img.shields.io/github/workflow/status/TarekTouati/vue-use-web/Lint%20and%20test/master?style=flat-square)
 ![Codacy grade](https://img.shields.io/codacy/grade/866989b53305443f9b1cdeb646b33d4c?style=flat-square)
 ![npm](https://img.shields.io/npm/v/vue-use-web?style=flat-square)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vue-use-web?style=flat-square)
