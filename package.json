@@ -31,7 +31,7 @@
     "@types/node": "^13.1.2",
     "@typescript-eslint/eslint-plugin": "^2.14.0",
     "@typescript-eslint/parser": "^2.14.0",
-    "@vue/composition-api": "^0.3.4",
+    "@vue/composition-api": "^0.4.0",
     "@vue/test-utils": "^1.0.0-beta.29",
     "@vuepress/plugin-back-to-top": "^1.2.0",
     "@vuepress/plugin-google-analytics": "^1.2.0",
