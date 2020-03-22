@@ -9,20 +9,19 @@ The `useFetch` function exposes the following reactive state:
 ```js
 import { useFetch } from 'vue-use-web';
 
-const { isLoading, json, text, error, success } = useFetch('http://myurl.com');
+const { isLoading, response, error, success } = useFetch('http://myurl.com');
 ```
 
-| State      | Type                     | Description                                                                      |
-| ---------- | ------------------------ | -------------------------------------------------------------------------------- |
-| error      | `Boolean`                | If the request resulted in a non 200 status code.                                |
-| headers    | `Record<string, string>` | The response headers.                                                            |
-| isLoading  | `Boolean`                | If the request is pending.                                                       |
-| json       | `any`                    | The response body as JSON.                                                       |
-| status     | `number`                 | The HTTP status code.                                                            |
-| statusText | `number`                 | The HTTP status text, eg: "OK" for 200.                                          |
-| success    | `Boolean`                | If the request is successful. i.e resulted in 200 status code.                   |
-| text       | `string`                 | The raw response body as a string.                                               |
-| type       | `string`                 | [Response type](https://developer.mozilla.org/en-US/docs/Web/API/Response/type). |
+| State      | Type                     | Description                                                                                     |
+| ---------- | ------------------------ | ----------------------------------------------------------------------------------------------- |
+| error      | `Boolean`                | If the request resulted in a non 200 status code.                                               |
+| headers    | `Record<string, string>` | The response headers.                                                                           |
+| isLoading  | `Boolean`                | If the request is pending.                                                                      |
+| response   | `any`                    | The response body as JSON or the raw response body as a string (depending on the content-type). |
+| status     | `number`                 | The HTTP status code.                                                                           |
+| statusText | `number`                 | The HTTP status text, eg: "OK" for 200.                                                         |
+| success    | `Boolean`                | If the request is successful. i.e resulted in 200 status code.                                  |
+| type       | `string`                 | [Response type](https://developer.mozilla.org/en-US/docs/Web/API/Response/type).                |
 
 ## Methods
 
@@ -45,9 +44,7 @@ const { cancel } = useFetch(elem);
   <div>
     <div>{{ isLoading }}</div>
     <div>{{ success }}</div>
-    <div>{{ text }}</div>
-    <div>{{ blob }}</div>
-    <div>{{ json }}</div>
+    <div>{{ response }}</div>
     <div>{{ cancelled }}</div>
     <button @click="cancel">Cancel Request</button>
   </div>
@@ -58,9 +55,9 @@ import { useFetch } from 'vue-use-web';
 
 export default {
   setup() {
-    const { isLoading, error, success, cancel, text, blob, json, cancelled } = useFetch('/data.json');
+    const { isLoading, error, success, cancel, response, cancelled } = useFetch('/data.json');
 
-    return { isLoading, error, success, cancel, text, blob, json, cancelled };
+    return { isLoading, error, success, cancel, response, cancelled };
   }
 };
 </script>
