@@ -1,13 +1,11 @@
 import { ref, onMounted, Ref } from '@vue/composition-api';
 
 export function useFetch(url: RequestInfo, options: RequestInit) {
-  const blob: Ref<Blob | null> = ref(null);
-  const json: Ref<any> = ref(null);
+  const response: Ref<any> = ref(null);
   const isLoading = ref(false);
   const success = ref(false);
   const error = ref(false);
   const cancelled = ref(false);
-  const text = ref('');
   const type: Ref<ResponseType | 'unknown'> = ref('unknown');
   const status: Ref<number | undefined> = ref(undefined);
   const statusText = ref('');
@@ -38,18 +36,23 @@ export function useFetch(url: RequestInfo, options: RequestInit) {
         });
 
         headers.value = responseHeaders;
+        const isContentTypeJson =
+          res.headers.get('content-type')?.slice(0, res.headers.get('content-type')?.indexOf(';')) ===
+          'application/json';
 
-        return Promise.all([res.clone().text(), res.clone().blob(), res.json()]);
+        if (isContentTypeJson) {
+          return res.json();
+        }
+
+        return res.text();
       })
-      .then(([text, blob, json]) => {
+      .then(responseValue => {
         // Graceful degradation for cancellation.
         if (cancelled.value) {
           return;
         }
 
-        text.value = text;
-        blob.value = blob;
-        json.value = json;
+        response.value = responseValue;
       })
       .catch(() => {
         error.value = true;
@@ -71,9 +74,7 @@ export function useFetch(url: RequestInfo, options: RequestInit) {
   }
 
   return {
-    blob,
-    json,
-    text,
+    response,
     status,
     statusText,
     headers,
