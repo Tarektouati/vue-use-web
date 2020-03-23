@@ -1418,15 +1418,6 @@
     regexpp "^3.0.0"
     tsutils "^3.17.1"
 
-"@typescript-eslint/experimental-utils@2.21.0":
-  version "2.21.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-2.21.0.tgz#71de390a3ec00b280b69138d80733406e6e86bfa"
-  integrity sha512-olKw9JP/XUkav4lq0I7S1mhGgONJF9rHNhKFn9wJlpfRVjNo3PPjSvybxEldvCXnvD+WAshSzqH5cEjPp9CsBA==
-  dependencies:
-    "@types/json-schema" "^7.0.3"
-    "@typescript-eslint/typescript-estree" "2.21.0"
-    eslint-scope "^5.0.0"
-
 "@typescript-eslint/experimental-utils@2.23.0", "@typescript-eslint/experimental-utils@^2.5.0":
   version "2.23.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-2.23.0.tgz#5d2261c8038ec1698ca4435a8da479c661dc9242"
@@ -1445,19 +1436,6 @@
     "@typescript-eslint/experimental-utils" "2.23.0"
     "@typescript-eslint/typescript-estree" "2.23.0"
     eslint-visitor-keys "^1.1.0"
-
-"@typescript-eslint/typescript-estree@2.21.0":
-  version "2.21.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.21.0.tgz#7e4be29f2e338195a2e8c818949ed0ff727cc943"
-  integrity sha512-NC/nogZNb9IK2MEFQqyDBAciOT8Lp8O3KgAfvHx2Skx6WBo+KmDqlU3R9KxHONaijfTIKtojRe3SZQyMjr3wBw==
-  dependencies:
-    debug "^4.1.1"
-    eslint-visitor-keys "^1.1.0"
-    glob "^7.1.6"
-    is-glob "^4.0.1"
-    lodash "^4.17.15"
-    semver "^6.3.0"
-    tsutils "^3.17.1"
 
 "@typescript-eslint/typescript-estree@2.23.0":
   version "2.23.0"
@@ -1577,16 +1555,7 @@
   dependencies:
     tslib "^1.9.3"
 
-"@vue/test-utils@^1.0.0-beta.29":
-  version "1.0.0-beta.32"
-  resolved "https://registry.yarnpkg.com/@vue/test-utils/-/test-utils-1.0.0-beta.32.tgz#38c3947886236201a3f24b583c73598eb95ccc69"
-  integrity sha512-ywhe7PATMAk/ZGdsrcuQIliQusOyfe0OOHjKKCCERqgHh1g/kqPtmSMT5Jx4sErx53SYbNucr8QOK6/u5ianAw==
-  dependencies:
-    dom-event-types "^1.0.0"
-    lodash "^4.17.15"
-    pretty "^2.0.0"
-
-"@vue/test-utils@^1.0.0-beta.32":
+"@vue/test-utils@^1.0.0-beta.29", "@vue/test-utils@^1.0.0-beta.32":
   version "1.0.0-beta.32"
   resolved "https://registry.yarnpkg.com/@vue/test-utils/-/test-utils-1.0.0-beta.32.tgz#38c3947886236201a3f24b583c73598eb95ccc69"
   integrity sha512-ywhe7PATMAk/ZGdsrcuQIliQusOyfe0OOHjKKCCERqgHh1g/kqPtmSMT5Jx4sErx53SYbNucr8QOK6/u5ianAw==
@@ -1694,12 +1663,12 @@
     nprogress "^0.2.0"
 
 "@vuepress/plugin-pwa@^1.2.0":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-pwa/-/plugin-pwa-1.3.1.tgz#4049273bb9161e15546ce8a2843eda1089614daa"
-  integrity sha512-ExudmW8w4jY+lNjTteYeEFNajLPr5dhiSyokYIcF3mX64xHwLJqqgHDUXZKh6ELTAZ6tUmuAMdFj76fjRaqJDw==
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-pwa/-/plugin-pwa-1.4.0.tgz#efc8a78ec21dba29911fd7797c86726c56de537e"
+  integrity sha512-op+nR0BA2Icl293dR+ti7dL08sDUalcQl9KUyvERkmJ0X85+7um/AYw9uotzuEnDca5BM5IRO7y5z+r2MxtI8g==
   dependencies:
-    "@vuepress/shared-utils" "^1.3.1"
-    register-service-worker "^1.5.2"
+    "@vuepress/shared-utils" "^1.4.0"
+    register-service-worker "^1.7.0"
     workbox-build "^4.3.1"
 
 "@vuepress/plugin-register-components@^1.2.0":
@@ -1714,10 +1683,10 @@
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-search/-/plugin-search-1.2.0.tgz#0b27c467b7fd42bd4d9e32de0fe2fb81a24bd311"
   integrity sha512-QU3JfnMfImDAArbJOVH1q1iCDE5QrT99GLpNGo6KQYZWqY1TWAbgyf8C2hQdaI03co1lkU2Wn/iqzHJ5WHlueg==
 
-"@vuepress/shared-utils@^1.2.0", "@vuepress/shared-utils@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@vuepress/shared-utils/-/shared-utils-1.3.1.tgz#930038dfadf28f39147e6cb781e9930259995a7e"
-  integrity sha512-MlIAlnptjDC9+l0SJKW6BpkuwtxfKDzq4Rmag75RdyIqkkNv4EsCXZ8Y3HSuzENWFBwoD31jLC+nCZ3hULcvSg==
+"@vuepress/shared-utils@^1.2.0", "@vuepress/shared-utils@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@vuepress/shared-utils/-/shared-utils-1.4.0.tgz#ab4bfcd5c1e3d0e5e384e0c1d0bb86470430c87e"
+  integrity sha512-6QTv7zMRXAojCuPRIm4aosYfrQO4OREhyxvbFeg/ZMWkVX+xZZQTdE7ZyK/4NAvEgkpjtPTRC1TQYhLJUqC5mQ==
   dependencies:
     chalk "^2.3.2"
     diacritics "^1.3.0"
@@ -9226,10 +9195,10 @@ regexpu-core@^4.5.4:
     unicode-match-property-ecmascript "^1.0.4"
     unicode-match-property-value-ecmascript "^1.1.0"
 
-register-service-worker@^1.5.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/register-service-worker/-/register-service-worker-1.6.2.tgz#9297e54c205c371c6e49bfa88f6997e8dd315f4c"
-  integrity sha512-I8L87fX2TK29LDx+wgyOUh2BJ3rDIRC1FtRZEHeP3rivzDv6p1DDZLGGtPucqjEkm45+2crtFIFssEWv56+9Wg==
+register-service-worker@^1.7.0:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/register-service-worker/-/register-service-worker-1.7.1.tgz#6308347ac6c0af0f6c0b22ea5d59d25e836bc932"
+  integrity sha512-IdTfUZ4u8iJL8o1w8es8l6UMGPmkwHolUdT+UmM1UypC80IB4KbpuIlvwWVj8UDS7eJwkEYRcKRgfRX+oTmJsw==
 
 regjsgen@^0.5.0:
   version "0.5.0"
