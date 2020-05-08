@@ -22,3 +22,4 @@ export * from './WebSocket';
 export * from './WindowScrollPosition';
 export * from './WindowSize';
 export * from './Worker';
+export * from './Notification';

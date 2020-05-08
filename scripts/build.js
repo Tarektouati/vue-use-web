@@ -1,12 +1,12 @@
-const mkdirpNode = require('mkdirp');
 const chalk = require('chalk');
 const { promisify } = require('util');
+const fs  = require('fs');
 const { configs, utils, paths } = require('./config');
 
-const mkdirp = promisify(mkdirpNode);
+const mkdir = promisify(fs.mkdir);
 
 async function build () {
-  await mkdirp(paths.dist);
+  await mkdir(paths.dist, { recursive: true })
   // eslint-disable-next-line
   console.log(chalk.cyan('Generating ESM build...'));
   await utils.writeBundle(configs.esm, 'vue-use-web.esm.js');
