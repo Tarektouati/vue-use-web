@@ -63,9 +63,11 @@ Each composition function is designed to degrade gracefully so you can safely us
 - [Window Scroll Position](https://Tarektouati.github.io/vue-use-web/functions/scroll-position.html).
 - [Window Size](https://Tarektouati.github.io/vue-use-web/functions/window-size.html).
 - [Worker](https://Tarektouati.github.io/vue-use-web/functions/worker.html).
-- Bluetooth (WIP).
-- Notification (WIP).
-- Share (WIP).
+- [Notification](https://Tarektouati.github.io/vue-use-web/functions/worker.html).
+- Bluetooth (TODO).
+- Share (TODO).
+- MediaDevices (WIP)
+- ResizeObserver (WIP)
 
 ## Inspiration
 

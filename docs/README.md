@@ -61,7 +61,7 @@ npm install @vue/composition-api vue-use-web
 - [Window Scroll Position](./functions/scroll-position.md).
 - [Window Size](./functions/window-size.md).
 - [Worker](./functions/worker.md).
-- [Notification](./functions/worker.md).
+- [Notification](./functions/notification.md).
 - Bluetooth <Badge text="WIP" type="warn" />.
 - Share <Badge text="WIP" type="warn" />.
 
