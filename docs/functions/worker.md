@@ -68,6 +68,4 @@ export default {
 </script>
 ```
 
-## Demo
-
-TODO: Cool Chat app maybe
+<!-- TODO: Demo Cool Chat app maybe -->

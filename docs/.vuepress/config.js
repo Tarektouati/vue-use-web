@@ -78,7 +78,8 @@ module.exports = {
           '/functions/script',
           '/functions/websocket',
           '/functions/scroll-position',
-          '/functions/window-size'
+          '/functions/window-size',
+          '/functions/notification'
         ]
       },
       {
