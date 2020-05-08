@@ -66,10 +66,10 @@
     "ts-jest": "^25.2.1",
     "typescript": "^3.7.4",
     "uglify-js": "^3.7.3",
-    "vue": "^2.6.11",
+    "vue": "^2.6.10",
     "vue-jest": "^3.0.5",
-    "vue-template-compiler": "^2.6.11",
-    "vuepress": "^1.2.0"
+    "vue-template-compiler": "^2.6.10",
+    "vuepress": "^1.4.1"
   },
   "husky": {
     "hooks": {
