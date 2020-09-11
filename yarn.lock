@@ -2030,11 +2030,11 @@
     nprogress "^0.2.0"
 
 "@vuepress/plugin-pwa@^1.2.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-pwa/-/plugin-pwa-1.5.0.tgz#700ac453e1f670a662af2fbc6455b3e98488843d"
-  integrity sha512-u/LA53+HPSipcSqqut4+yUzoNUeEPiY9ZR6A1JWe6BrFl6Ec/GNHvy6h2IFdoVgMcU7A3keVEjOcFoNKUIkVEQ==
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-pwa/-/plugin-pwa-1.5.4.tgz#97fe6d917f8815cdea7a8025e065c5a08480cd94"
+  integrity sha512-d3XWS0Zbae1c6IDU64BpIAIr78A7kTZTA7qkqk1H5sbO1SqlXMWQVMsiFZuraxiEY2uDc0N5j3Yr4Kkmo+0o0w==
   dependencies:
-    "@vuepress/shared-utils" "1.5.0"
+    "@vuepress/shared-utils" "1.5.4"
     register-service-worker "^1.7.0"
     workbox-build "^4.3.1"
 
