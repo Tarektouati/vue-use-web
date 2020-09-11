@@ -23,3 +23,4 @@ export * from './WindowScrollPosition';
 export * from './WindowSize';
 export * from './Worker';
 export * from './Notification';
+export * from './DeviceMedia';

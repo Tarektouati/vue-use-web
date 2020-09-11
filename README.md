@@ -64,9 +64,9 @@ Each composition function is designed to degrade gracefully so you can safely us
 - [Window Size](https://Tarektouati.github.io/vue-use-web/functions/window-size.html).
 - [Worker](https://Tarektouati.github.io/vue-use-web/functions/worker.html).
 - [Notification](https://Tarektouati.github.io/vue-use-web/functions/worker.html).
+- [Media Devices](https://Tarektouati.github.io/vue-use-web/functions/device-media.html).
 - Bluetooth (TODO).
 - Share (TODO).
-- MediaDevices (WIP)
 - ResizeObserver (WIP)
 
 ## Inspiration
