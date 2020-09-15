@@ -31,17 +31,17 @@ These are the currently implemented Web APIs and the planned ones.
 - [Fetch API](./fetch.md).
 - [Full-screen](./fullscreen.md).
 - [Geo-location API](./geolocation.md).
-- [Hardware Concurrency](./guide/hardware-concurrency.md).
+- [Hardware Concurrency](./hardware-concurrency.md).
 - [Intersection Observer](./intersection-observer.md).
 - [Local storage API](./local-storage.md).
 - [Media Query](./media-query.md).
-- [Memory Status](./guide/memory-status.md)
+- [Memory Status](./memory-status.md)
 - [Mouse Position](./mouse-position.md).
 - [Network Information API](./network.md).
 - [Preferred Color Scheme](./preferred-color-scheme.md).
 - [Preferred Languages](./preferred-languages.md).
 - [Script](./script.md).
-- [WebSocket](./guide/websocket.md).
+- [WebSocket](./websocket.md).
 - [Window Scroll Position](./scroll-position.md).
 - [Window Size](./window-size.md).
 - [Worker](./worker.md).
