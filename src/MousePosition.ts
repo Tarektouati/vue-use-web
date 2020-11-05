@@ -6,7 +6,7 @@ export function useMousePosition() {
 
   function handler(e: MouseEvent) {
     x.value = e.clientX;
-    x.value = e.clientY;
+    y.value = e.clientY;
   }
 
   onMounted(() => {
