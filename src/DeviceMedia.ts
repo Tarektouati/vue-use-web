@@ -7,10 +7,8 @@ export function useDeviceMedia(constraints: MediaStreamConstraints) {
   onMounted(() => {
     navigator.mediaDevices
       .getUserMedia(constraints)
-      .then(stream => (streamRef.value = stream))
-      .catch(err => {
-        errorRef.value = err;
-      });
+      .then((recivedStream: MediaStream) => (streamRef.value = recivedStream))
+      .catch(err => (errorRef.value = err));
   });
 
   return {
