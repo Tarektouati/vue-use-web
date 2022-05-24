@@ -3,9 +3,9 @@ export function throttle<T extends (...args: any[]) => void>(wait: number, fn: T
     return fn;
   }
 
-  let timeout: number | undefined;
+  let timeout: ReturnType<typeof setTimeout> || undefined;
 
-  return ((...args: any[]) => {
+  return ((...args: Parameters<T> ) => {
     const later = () => {
       timeout = undefined;
 
@@ -14,8 +14,9 @@ export function throttle<T extends (...args: any[]) => void>(wait: number, fn: T
     };
 
     clearTimeout(timeout);
-    timeout = setTimeout(later, wait) as any;
+    timeout = setTimeout(later, wait);
   }) as T;
 }
+
 
 export const hasWindow = typeof window !== 'undefined';
